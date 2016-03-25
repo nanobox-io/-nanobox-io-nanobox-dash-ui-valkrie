@@ -1,0 +1,25 @@
+{
+  "name": "valkrie",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js",
+    "clobberbox": "nanobox-io/nanobox-dash-ui-clobber-box"
+  },
+  "ignore": [
+    "libs",
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  }
+}
