@@ -18,7 +18,7 @@ module.exports = class ValkrieDataShim
       else @basicApp()
 
     returner = @serialize()
-    console.log JSON.stringify returner
+    # console.log JSON.stringify returner
     returner
 
   # Basic app

@@ -3,10 +3,12 @@ GlobMachine  = require 'glob/glob-machine'
 
 class Valkrie
 
-  constructor: (@$el) ->
+  constructor: (@$el, @params) ->
     @globMachine = new GlobMachine(@$el)
 
-  fetchDataGlob : (appId, url) ->
+  # ------------------------------------ API
+
+  update : (appId, url) ->
     postData =
       appId : appId
 
@@ -15,10 +17,12 @@ class Valkrie
       type        : 'POST'
       dataType    : 'json'
       contentType : "application/json;charset=utf-8"
-      error       : (request, error)=> console.log 'error fetching data..'
-      success     : (data)=>@update JSON.parse(data)
+      error       : (request, error)=> console.log "error fetching data : #{error}"
+      success     : (data)=> @refresh JSON.parse(data)
 
-  update : (dataGlob) ->
+  # ------------------------------------ Helpers
+
+  refresh : (dataGlob) ->
     @globMachine.update dataGlob
 
 window.nanobox ||= {}

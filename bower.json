@@ -1,13 +1,12 @@
 {
   "name": "valkrie",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "dependencies": {
     "jquery": "*",
     "velocity": "~1.1.0",
     "shadow-icons": "tolmark12/shadow-icons-js",
-    "clobberbox": "nanobox-io/nanobox-dash-ui-clobber-box",
     "PubSubJS": "pubsub-js#^1.5.3",
-    "platform-component": "nanobox-io/nanobox-dashboard-ui-platform-component"
+    "jade": "~1.6.0"
   },
   "ignore": [
     "libs",
@@ -22,6 +21,7 @@
     "**/.*"
   ],
   "devDependencies": {
-    "jade": "~1.6.0"
+    "clobberbox": "nanobox-io/nanobox-dash-ui-clobber-box",
+    "platform-component": "nanobox-io/nanobox-dashboard-ui-platform-component"
   }
 }
