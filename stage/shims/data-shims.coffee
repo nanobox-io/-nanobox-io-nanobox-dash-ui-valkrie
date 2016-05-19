@@ -81,4 +81,4 @@ module.exports = class ValkrieDataShim
   initUI : () ->
     $('select').on 'change', (e)=>
       val = $(e.currentTarget).val()
-      valkrie.update( @getApp( val ) )
+      valkrie.refresh( @getApp( val ) )

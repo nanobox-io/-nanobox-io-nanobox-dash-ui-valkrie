@@ -18,8 +18,8 @@ module.exports = class GenerationUpdater extends Updater
       @getParentHostOfComponent(componentId).addGeneration componentId, newGeneration
 
     # Old generations that should be destroyed
-    for newGeneration in nonMatchedNew
-      'do nothing yet'
+    for oldGeneration in nonMatchedOld
+      @getParentHostOfComponent(componentId).removeGeneration oldGeneration.id
       # Need to destroy this component somehow.. Should I set its state to archived? or add
       # a destroy component method?. I'm leaning towards the latter.
 
