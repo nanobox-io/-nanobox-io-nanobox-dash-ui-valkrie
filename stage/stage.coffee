@@ -1,13 +1,8 @@
 ValkrieDataShim = require './shims/data-shims'
 
-dataShim = new ValkrieDataShim()
-valkrie = new nanobox.Valkrie( $("body") )
+window.dataShim = new ValkrieDataShim()
+window.valkrie  = new nanobox.Valkrie( $("body") )
 
 statsDataSimultor.createFakeStatDataProvider()
 
-
-# Host
-hostId = valkrie.addHost clobberBoxDataShim.getHost()
-
-# Cluster
-clusterId = valkrie.addCluster clobberBoxDataShim.getCluster()
+valkrie.update dataShim.getApp()

@@ -9,6 +9,10 @@ html(lang="en")
     link(href="bower-libs/hourly-stats/rel/style.css", rel="stylesheet")
     link(href="bower-libs/clobberbox/rel/style.css", rel="stylesheet")
     link(href="bower-libs/platform-component/rel/style.css", rel="stylesheet")
+    link(href="bower-libs/scale-machine/rel/style.css", rel="stylesheet")
+    link(href="bower-libs/hourly-average/rel/style.css", rel="stylesheet")
+    link(href="bower-libs/usage-breakdown/rel/style.css", rel="stylesheet")
+    link(href="css/shared-svg.css", rel="stylesheet")
     // endbuild
     
     // build:css style.css
@@ -16,10 +20,22 @@ html(lang="en")
     // endbuild
 
   body
+    .ui
+      .txt Simulate Rails Data Blob : 
+      select
+        option() 
+        option(value="host-state-change") Change Host State : provisioning
+        option(value="component-state-change") Change Component State : provisioning
+        option(value="add-component") Add a Component
+        option(value="remove-component") Remove a Component
+        option(value="add-generation") Add a Generation
+        option(value="remove-generation") Remove a Generation
+        option(value="reset") Reset
     // build:remove 
     script(src="bower-libs/jquery/dist/jquery.js")
     script(src="bower-libs/PubSubJS/src/pubsub.js")
     script(src="bower-libs/jade/runtime.js")
+    script(src="bower-libs/moment/min/moment.min.js")
     script(src="bower-libs/shadow-icons/rel/app.js")
     script(src="bower-libs/d3/d3.min.js")
     script(src="bower-libs/hourly-stats/rel/app.js")
@@ -29,7 +45,14 @@ html(lang="en")
     script(src="bower-libs/velocity/velocity.js")
     script(src="bower-libs/clobberbox/rel/app.js")
     script(src="bower-libs/clobberbox/rel/data-shim.js")
+    script(src="bower-libs/hourly-average/rel/app.js")
+    script(src="bower-libs/hourly-average/rel/data-shim.js")
+    script(src="bower-libs/scale-machine/rel/app.js")
+    script(src="bower-libs/scale-machine/rel/data-shim.js")
+    script(src="bower-libs/usage-breakdown/rel/app.js")
+    script(src="bower-libs/usage-breakdown/rel/data-shim.js")
     script(src="https://use.typekit.net/cqd5kth.js")
+    script(src="js/shared-svg.js")
     // endbuild
     
     script(type="text/javascript") try{Typekit.load({ async: true });}catch(e){}
