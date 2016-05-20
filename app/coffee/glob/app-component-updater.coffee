@@ -21,9 +21,6 @@ module.exports = class AppComponentUpdater extends Updater
     for oldComponent in nonMatchedOld
       @getBox(hostId).removeComponent oldComponent.id
 
-      # Need to destroy this component somehow.. Should I set its state to archived? or add
-      # a destroy component method?. I'm leaning towards the latter.
-
   updateComponent : (componentId, oldComponent, newComponent) ->
     @generationUpdater.updateGenerations componentId, oldComponent.generations, newComponent.generations
 
