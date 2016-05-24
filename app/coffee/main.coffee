@@ -4,18 +4,15 @@ GlobMachine  = require 'glob/glob-machine'
 class Valkrie
 
   constructor: (@$el, @params) ->
+    @registerForPubSubCalls()
     @globMachine = new GlobMachine(@$el)
 
   # ------------------------------------ API
 
-  update : (appId, url) ->
-    postData =
-      appId : appId
-
+  update : (url) ->
     $.ajax
       url         : url
-      type        : 'POST'
-      dataType    : 'json'
+      type        : 'GET'
       contentType : "application/json;charset=utf-8"
       error       : (request, error)=> console.log "error fetching data : #{error}"
       success     : (data)=> @refresh JSON.parse(data)
@@ -24,6 +21,13 @@ class Valkrie
 
   refresh : (dataGlob) ->
     @globMachine.update dataGlob
+
+  # UI Events triggered from within valkrie
+
+  registerForPubSubCalls : () ->
+    PubSub.subscribe 'SPLITTER.SPLIT', (m, data)=> @params.callbacks.onSplitService data
+    PubSub.subscribe 'SCALE'         , (m, data)-> @params.callbacks.onScaleHost data
+
 
 window.nanobox ||= {}
 nanobox.Valkrie = Valkrie

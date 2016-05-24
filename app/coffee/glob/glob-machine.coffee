@@ -23,12 +23,14 @@ module.exports = class GlobMachine
       @createOrUpdateHost hostData
 
     for clusterData in glob.clusters
-      cluster = @getOrCreateCluster clusterData
+      @getOrCreateCluster clusterData
 
   createOrUpdateHost : (newHostData) ->
+    # If Host doesn't exist :
     if !@hosts[ newHostData.id ]?
       entity = new nanobox.ClobberBox()
       entity.build @$el, nanobox.ClobberBox.HOST, newHostData
+    # Create host:
     else
       host = @hosts[ newHostData.id ]
       entity = host.entity
@@ -48,10 +50,9 @@ module.exports = class GlobMachine
     @clusters[clusterData.id] = {data:clusterData, entity:entity}
 
   subscribeToRegistrations : ->
-    # Shim, this should be handled by valkrie..
-    PubSub.subscribe 'STATS.GET_OPTIONS', (m, cb)-> cb scaleMachineTestData.getHostOptions()
-    PubSub.subscribe 'REGISTER'         , (m, box)=> @addBox box
-    PubSub.subscribe 'UNREGISTER'       , (m, box)=> @removeBox box
+    PubSub.subscribe 'STATS.GET_OPTIONS'       , (m, cb) -> cb scaleMachineTestData.getHostOptions()
+    PubSub.subscribe 'REGISTER'                , (m, box)=> @addBox box
+    PubSub.subscribe 'UNREGISTER'              , (m, box)=> @removeBox box
 
 
   addEventListeners : () ->
