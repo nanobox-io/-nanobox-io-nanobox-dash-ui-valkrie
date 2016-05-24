@@ -19,11 +19,13 @@ module.exports = class GlobMachine
     @addEventListeners()
 
   update : (glob) ->
-    for hostData in glob.hosts
-      @createOrUpdateHost hostData
+    if glob.hosts?
+      for hostData in glob.hosts
+        @createOrUpdateHost hostData
 
-    for clusterData in glob.clusters
-      @getOrCreateCluster clusterData
+    if glob.clusters?
+      for clusterData in glob.clusters
+        @getOrCreateCluster clusterData
 
   createOrUpdateHost : (newHostData) ->
     # If Host doesn't exist :
