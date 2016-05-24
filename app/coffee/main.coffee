@@ -27,13 +27,7 @@ class Valkrie
   registerForPubSubCalls : () ->
     PubSub.subscribe 'SPLITTER.SPLIT'    , (m, data)=> @params.callbacks.onSplitService data
     PubSub.subscribe 'SCALE'             , (m, data)=> @params.callbacks.onScaleHost data
-    PubSub.subscribe 'STATS.GET_OPTIONS' , (m, cb)  =>
-      console.log "Getting scale options:"
-      console.log @
-      console.log @params
-      console.log @params.scaleOptions
-      console.log "-------------------------------"
-      cb @params.scaleOptions
+    PubSub.subscribe 'STATS.GET_OPTIONS' , (m, cb)  => cb @params.scaleOptions
 
 window.nanobox ||= {}
 nanobox.Valkrie = Valkrie
