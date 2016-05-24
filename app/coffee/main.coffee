@@ -15,9 +15,7 @@ class Valkrie
       type        : 'GET'
       contentType : "application/json;charset=utf-8"
       error       : (request, error)=> console.log "error fetching data : #{error}"
-      success     : (data)=>
-        console.log data
-        @refresh JSON.parse(data)
+      success     : (data)=> @refresh data
 
   # ------------------------------------ Helpers
 
