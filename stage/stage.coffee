@@ -4,9 +4,10 @@ statsDataSimultor.createFakeStatDataProvider()
 
 window.valkrieTesterInit = ()->
   params =
-    updateUrl : "htpp://nanobox.io/apps/3in0vsia0an3"
-    callbacks :
-      onScaleHost    : (data)->
+    scaleOptions : scaleMachineTestData.getHostOptions()
+    updateUrl    : "htpp://nanobox.io/apps/3in0vsia0an3"
+    callbacks    :
+      onScaleHost : (data)->
         console.log 'scale host ::'
         console.log data
 

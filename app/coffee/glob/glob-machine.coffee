@@ -52,10 +52,8 @@ module.exports = class GlobMachine
     @clusters[clusterData.id] = {data:clusterData, entity:entity}
 
   subscribeToRegistrations : ->
-    PubSub.subscribe 'STATS.GET_OPTIONS'       , (m, cb) -> cb scaleMachineTestData.getHostOptions()
     PubSub.subscribe 'REGISTER'                , (m, box)=> @addBox box
     PubSub.subscribe 'UNREGISTER'              , (m, box)=> @removeBox box
-
 
   addEventListeners : () ->
     PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> @getBox(data.id).switchSubContent 'app-components', data.el
