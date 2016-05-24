@@ -9,9 +9,9 @@ class Valkrie
 
   # ------------------------------------ API
 
-  update : (url) ->
+  update : () ->
     $.ajax
-      url         : url
+      url         : @params.updateUrl
       type        : 'GET'
       contentType : "application/json;charset=utf-8"
       error       : (request, error)=> console.log "error fetching data : #{error}"
