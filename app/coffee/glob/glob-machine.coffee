@@ -25,7 +25,21 @@ module.exports = class GlobMachine
 
     if glob.clusters?
       for clusterData in glob.clusters
-        @getOrCreateCluster clusterData
+        for generation in clusterData.generations
+          data =
+            serviceId        : clusterData.id
+            serviceState     : clusterData.state
+            name             : clusterData.name
+            serviceType      : clusterData.serviceType
+            scalesHoriz      : clusterData.scalesHoriz
+            scalesRedund     : clusterData.scalesRedund
+            instances        : clusterData.instances # Delete
+            id               : generation.id
+            generationState  : generation.state
+            generationStatus : generation.status
+            members          : generation.instances
+            totalMembers     : generation.instances.length
+          @getOrCreateCluster data
 
   createOrUpdateHost : (newHostData) ->
     # If Host doesn't exist :
