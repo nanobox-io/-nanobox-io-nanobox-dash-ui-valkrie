@@ -111,7 +111,7 @@ compileFiles = (doWatch=false, cb) ->
     {meth:jsStage,    glob:stageJsPath}
     {meth:cssStage,   glob:cssStagePath}
     {meth:htmlStage,  glob:jadeStagePath}
-    {meth:copyAssets, glob:assetPath, params:['server/assets', onComplete]}
+    {meth:copyAssets, glob:assetPath, params:['./server/assets/core-styles/', onComplete]}
   ]
 
   createWatcher = (item, params)->
@@ -127,6 +127,12 @@ compileFiles = (doWatch=false, cb) ->
       createWatcher(item, params)
     else
       item.meth.apply null, params
+
+# ------------------------------------ Compiling the shared library
+compileSharedLib = ()->
+  gulp.src( './server/js/shared-svg.js'     ).pipe gulp.dest('./libs/core-styles/rel')
+  gulp.src( './server/css/shared-svg.css'   ).pipe gulp.dest('./libs/core-styles/rel')
+  gulp.src( './libs/core-styles/sprite.png' ).pipe gulp.dest('./libs/core-styles/rel')
 
 # ------------------------------------ Random helpers
 
@@ -202,5 +208,6 @@ gulp.task 'rel:clean',                                 (cb)  -> rimraf './rel', 
 gulp.task 'bumpVersion',                               ()    -> bumpBowerVersion()
 gulp.task 'copyStatics', ['bowerLibs'],                ()    -> copyAssets('rel/assets', ->)
 gulp.task 'releaseCompile', ['copyStatics'],           (cb)  -> compileFiles(false, cb)
-gulp.task 'minify',['releaseCompile'],                 ()    -> minifyAndJoin();
+gulp.task 'compile.shared.lib', ['releaseCompile'],    ()    -> compileSharedLib()
+gulp.task 'minify',['compile.shared.lib'],             ()    -> minifyAndJoin();
 gulp.task 'rel', ['rel:clean', 'bumpVersion', 'minify'],     -> rimraf './rel/index.html', ->
