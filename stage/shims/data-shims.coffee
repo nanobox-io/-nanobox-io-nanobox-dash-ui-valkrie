@@ -25,7 +25,7 @@ module.exports = class ValkrieDataShim
   basicApp : () ->
     clobberBoxDataShim.resetCounts()
     return {
-      clusters : [ clobberBoxDataShim.getCluster() ]
+      clusters : [ clobberBoxDataShim.getDataCluster() ]
       hosts    : [ clobberBoxDataShim.getHost()    ]
     }
 
