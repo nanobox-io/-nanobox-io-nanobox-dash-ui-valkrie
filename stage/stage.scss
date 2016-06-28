@@ -1,3 +1,5 @@
+@import '../lib/assets/core-styles/styles.scss';
+
 body   { margin:0; padding:15px 40px; background:#DFDFDF; align-items:cemnter;  }
 .valkri-test-ui    { position:fixed; bottom:20px; right: 20px; display:flex;
   .txt { font-size:13px; font-style:italic; margin-right:5px; color:#9D9D9D; }
