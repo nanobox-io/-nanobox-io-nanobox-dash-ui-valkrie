@@ -41,14 +41,22 @@ module.exports = class GlobMachine
             totalMembers     : generation.instances.length
           @getOrCreateCluster data
 
+    # If there are no deploys, then there will only be one
+    # host (bunkhouse). Show the state of this host as ready
+    # for deploy
+    if glob.totalDeploys == 0
+      for key, host of @hosts
+        host.entity.box.showAsReadyForDeploys()
+        return
+
   createOrUpdateHost : (newHostData) ->
     # If Host doesn't exist :
     if !@hosts[ newHostData.id ]?
       entity = new nanobox.ClobberBox()
       entity.build @$el, nanobox.ClobberBox.HOST, newHostData
-    # Create host:
+    # get existing host :
     else
-      host = @hosts[ newHostData.id ]
+      host   = @hosts[ newHostData.id ]
       entity = host.entity
       @hostUpdater.update host.entity, host.data, newHostData
 

@@ -25,8 +25,8 @@ module.exports = class ValkrieDataShim
   basicApp : () ->
     clobberBoxDataShim.resetCounts()
     return {
-      clusters : [ clobberBoxDataShim.getDataCluster() ]
-      hosts    : [ clobberBoxDataShim.getHost()    ]
+      clusters     : [ clobberBoxDataShim.getDataCluster() ]
+      hosts        : [ clobberBoxDataShim.getHost()    ]
     }
 
 
@@ -62,8 +62,9 @@ module.exports = class ValkrieDataShim
 
   serialize : () ->
     data = {
-      clusters : []
-      hosts    : []
+      clusters     : []
+      hosts        : []
+      totalDeploys : 0
     }
 
     for cluster in @app.clusters
