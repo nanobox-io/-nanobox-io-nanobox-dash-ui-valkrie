@@ -20,4 +20,5 @@ window.valkrieTesterInit = ()->
 
   # For local testing, just call an immediate refresh
   # Instead of AJAXing from a data endpoint
+  console.log JSON.stringify(dataShim.getApp())
   valkrie.refresh dataShim.getApp()

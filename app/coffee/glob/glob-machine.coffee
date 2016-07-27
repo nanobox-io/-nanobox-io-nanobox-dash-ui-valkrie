@@ -34,6 +34,7 @@ module.exports = class GlobMachine
             scalesHoriz      : clusterData.scalesHoriz
             scalesRedund     : clusterData.scalesRedund
             instances        : clusterData.instances # Delete
+            adminPath        : clusterData.adminPath
             id               : generation.id
             generationState  : generation.state
             generationStatus : generation.status
