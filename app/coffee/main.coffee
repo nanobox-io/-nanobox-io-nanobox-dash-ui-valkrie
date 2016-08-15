@@ -4,8 +4,10 @@ GlobMachine  = require 'glob/glob-machine'
 class Valkrie
 
   constructor: (@$el, @params) ->
+    $boxes = $ '<div class="boxes" />'
+    @$el.append $boxes
     @registerForPubSubCalls()
-    @globMachine = new GlobMachine(@$el)
+    @globMachine = new GlobMachine $boxes
 
   # ------------------------------------ API
 
