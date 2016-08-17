@@ -64,7 +64,7 @@ module.exports = class ValkrieDataShim
     data = {
       clusters     : []
       hosts        : []
-      totalDeploys : 0
+      # totalDeploys : 0
     }
 
     for cluster in @app.clusters
