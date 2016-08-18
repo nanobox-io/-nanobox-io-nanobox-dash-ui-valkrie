@@ -130,9 +130,9 @@ compileFiles = (doWatch=false, cb) ->
 
 # ------------------------------------ Compiling the shared library
 compileSharedLib = ()->
-  gulp.src( './server/js/shared-svg.js'     ).pipe gulp.dest('./libs/core-styles/rel')
-  gulp.src( './server/css/shared-svg.css'   ).pipe gulp.dest('./libs/core-styles/rel')
-  gulp.src( './libs/core-styles/sprite.png' ).pipe gulp.dest('./libs/core-styles/rel')
+  gulp.src( './server/js/shared-svg.js'     ).pipe gulp.dest('./lib/assets/core-styles/rel')
+  gulp.src( './server/css/shared-svg.css'   ).pipe gulp.dest('./lib/assets/core-styles/rel')
+  gulp.src( './lib/core-styles/sprite.png' ).pipe  gulp.dest('./lib/assets/core-styles/rel')
 
 # ------------------------------------ Random helpers
 
