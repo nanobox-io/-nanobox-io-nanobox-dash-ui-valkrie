@@ -4,6 +4,7 @@ GlobMachine  = require 'glob/glob-machine'
 class Valkrie
 
   constructor: (@$el, @params) ->
+    @statsMachine = new StatsMachine()
     $boxes = $ '<div class="boxes" />'
     @$el.append $boxes
     @registerForPubSubCalls()
@@ -22,6 +23,7 @@ class Valkrie
   # ------------------------------------ Helpers
 
   refresh : (dataGlob) ->
+    @statsMachine.setAppInfo dataGlob.appId, dataGlob.xAuthToken
     @globMachine.update dataGlob
 
   # UI Events triggered from within valkrie

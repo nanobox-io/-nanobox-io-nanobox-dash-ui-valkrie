@@ -4,6 +4,7 @@ module.exports = class ValkrieDataShim
     @initUI()
 
   getApp : (id, resetApp=false) ->
+    return require './valkrie-glob-1.json'
     if resetApp
       @app = @basicApp()
 
@@ -25,7 +26,8 @@ module.exports = class ValkrieDataShim
   basicApp : () ->
     clobberBoxDataShim.resetCounts()
     return {
-      clusters     : [ clobberBoxDataShim.getDataCluster() ]
+      clusters     : [  ]
+      # clusters     : [ clobberBoxDataShim.getDataCluster() ]
       hosts        : [ clobberBoxDataShim.getHost()    ]
     }
 
@@ -61,11 +63,12 @@ module.exports = class ValkrieDataShim
     @app
 
   serialize : () ->
-    data = {
+    data =
       clusters     : []
       hosts        : []
-      # totalDeploys : 0
-    }
+      totalDeploys : 2
+      xAuthToken   : 'WPqKIYCvT7UwFR1GJ8sSg09jVXdL4QEoxlnAymB6ek2O5NfrM3'
+      appId        : '100a4410-53e9-4913-a0eb-589a367c4d95'
 
     for cluster in @app.clusters
       data.clusters.push cluster.serialize()

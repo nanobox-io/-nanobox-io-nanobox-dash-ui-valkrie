@@ -1,6 +1,6 @@
 ValkrieDataShim = require './shims/data-shims'
 window.dataShim = new ValkrieDataShim()
-statsDataSimultor.createFakeStatDataProvider()
+# statsDataSimultor.createFakeStatDataProvider()
 
 window.valkrieTesterInit = ()->
   params =
@@ -20,5 +20,5 @@ window.valkrieTesterInit = ()->
 
   # For local testing, just call an immediate refresh
   # Instead of AJAXing from a data endpoint
-  console.log dataShim.getApp()
+  # console.log dataShim.getApp()
   valkrie.refresh dataShim.getApp()
