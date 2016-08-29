@@ -18,7 +18,6 @@ module.exports = class StatsMachine
         @loadHistoricStat data, metric
 
     PubSub.subscribe 'STATS.SUBSCRIBE.LIVE', (m, data)=>
-      console.log data
       for metric in data.metrics
         @loadLiveStat data, metric
 
@@ -70,8 +69,11 @@ module.exports = class StatsMachine
   loadLiveStat : (data, metric) ->
     dataParams = {}
     dataParams[data.entity] = data.entityId
+    dataParams.verb         = 'max'
     if data.entity == 'host'
       dataParams.component = ''
+
+    "https://proxy.nanobox.io/#{@appId}/pulse/latest/ram_percent?component="
 
     url = @buildUrl(metric, 'latest')
     @makeRequest url, dataParams, (result)->
@@ -98,6 +100,7 @@ module.exports = class StatsMachine
 
     url  = @buildUrl data.metric, 'daily'
     @makeRequest url, dataParams, (result)->
+      console.log result
       for item in result
         if item.value != -1
           item.value /= 10
