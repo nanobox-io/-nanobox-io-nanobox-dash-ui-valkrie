@@ -18,6 +18,7 @@ module.exports = class StatsMachine
         @loadHistoricStat data, metric
 
     PubSub.subscribe 'STATS.SUBSCRIBE.LIVE', (m, data)=>
+      console.log data
       for metric in data.metrics
         @loadLiveStat data, metric
 
