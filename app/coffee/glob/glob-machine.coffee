@@ -30,6 +30,9 @@ module.exports = class GlobMachine
             serviceId        : clusterData.id
             serviceState     : clusterData.state
             name             : clusterData.name
+            category         : clusterData.category
+            clusterable      : clusterData.clusterable
+            isSplitable      : clusterData.isSplitable
             serviceType      : clusterData.serviceType
             scalesHoriz      : clusterData.scalesHoriz
             scalesRedund     : clusterData.scalesRedund

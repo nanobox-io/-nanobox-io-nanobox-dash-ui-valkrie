@@ -100,7 +100,6 @@ module.exports = class StatsMachine
 
     url  = @buildUrl data.metric, 'daily'
     @makeRequest url, dataParams, (result)->
-      console.log result
       for item in result
         if item.value != -1
           item.value /= 10
