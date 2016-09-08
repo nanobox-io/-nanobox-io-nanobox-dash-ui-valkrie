@@ -25,6 +25,8 @@ module.exports = class GlobMachine
 
     if glob.clusters?
       for clusterData in glob.clusters
+        console.log clusterData.category
+        console.log clusterData.clusterable
         for generation in clusterData.generations
           data =
             serviceId        : clusterData.id
