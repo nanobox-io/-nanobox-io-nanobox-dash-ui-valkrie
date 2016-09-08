@@ -101,3 +101,16 @@ module.exports = class GlobMachine
 
   addBox    : (box) -> @boxes[box.id] = box
   removeBox : (box) -> delete @boxes[box.id]
+
+  # This is used by the splitter to know what bunkhouses are available for moving components onto
+  getBunkhouses : (componentId) ->
+    ar = []
+    for id, host of @hosts
+      data =
+        id   : host.data.bunkhouseId
+        name : host.data.name
+      for component in host.data.appComponents
+        if component.id == componentId
+          data.current = true
+      ar.push data
+    return ar

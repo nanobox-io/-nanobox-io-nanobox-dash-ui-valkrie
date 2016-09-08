@@ -31,6 +31,7 @@ class Valkrie
   registerForPubSubCalls : () ->
     PubSub.subscribe 'SPLIT.SAVE'        , (m, data)=> @params.callbacks.onSplitService data
     PubSub.subscribe 'SCALE.SAVE'        , (m, data)=> @params.callbacks.onScaleHost data
+    PubSub.subscribe 'GET_BUNKHOUSES'    , (m, data)=> data.cb @globMachine.getBunkhouses(data.id)
     PubSub.subscribe 'SCALE.GET_OPTIONS' , (m, cb)  => cb @params.scaleOptions
 
 window.nanobox ||= {}
