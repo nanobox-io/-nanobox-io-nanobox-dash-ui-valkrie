@@ -25,8 +25,6 @@ module.exports = class GlobMachine
 
     if glob.clusters?
       for clusterData in glob.clusters
-        console.log clusterData.category
-        console.log clusterData.clusterable
         for generation in clusterData.generations
           data =
             serviceId        : clusterData.id
@@ -111,8 +109,10 @@ module.exports = class GlobMachine
       data =
         id   : host.data.bunkhouseId
         name : host.data.name
-      for component in host.data.appComponents
+      # Loop through all components and see if this component matches
+      for component in host.data.appComponents.concat( host.data.platformServices)
         if component.id == componentId
           data.current = true
+          break
       ar.push data
     return ar

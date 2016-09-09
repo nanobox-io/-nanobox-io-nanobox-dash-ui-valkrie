@@ -42,6 +42,7 @@ module.exports = class StatsMachine
     # ---------------------------------------------------------------------------------------------------
 
   loadHistoricStat : (data, metric) ->
+    console.log data
     dataParams =
       start : data.start
       stop  : data.stop
