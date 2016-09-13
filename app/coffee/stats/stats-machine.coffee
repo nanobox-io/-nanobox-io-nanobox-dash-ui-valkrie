@@ -45,6 +45,7 @@ module.exports = class StatsMachine
     dataParams =
       start : data.start
       stop  : data.stop
+      verb  : 'max'
     dataParams[data.entity] = data.entityId
     if data.entity == 'host'
       dataParams.component = ''
