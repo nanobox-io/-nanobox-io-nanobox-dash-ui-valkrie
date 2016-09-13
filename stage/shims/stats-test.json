@@ -1,0 +1,289 @@
+{
+  "appId": "0732603e-2c2a-481a-9b36-2c04f59e83f8",
+  "xAuthToken": "cMog6nmEvs57UNPR9fujtBqe8Fwz34QA1TYOLilSJbDXyKGhrC",
+  "totalDeploys": 1,
+  "hosts": [
+    {
+      "id": "22236f44-d622-4984-8425-3bf6e3df354a",
+      "name": "do.1",
+      "state": "active",
+      "status": "online",
+      "bunkhouseId": "9c7f0ec6-195d-4e2d-a3e8-8fddaafc3403",
+      "serverSpecsId": "512mb",
+      "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/hosts\/22236f44-d622-4984-8425-3bf6e3df354a",
+      "platformServices": [
+        {
+          "id": "c25dd230-c05c-4af5-a50f-4f9a1ad97039",
+          "uid": "logger1",
+          "kind": "logger",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "2c244e61-6503-4332-bcd8-f39f6bc822f7",
+              "uid": "data.logvac",
+              "name": "data.logvac",
+              "state": "active",
+              "serviceType": "nanobox\/logvac",
+              "category": "data",
+              "clusterable": false,
+              "isSplitable": true,
+              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/2c244e61-6503-4332-bcd8-f39f6bc822f7",
+              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/2c244e61-6503-4332-bcd8-f39f6bc822f7\/info",
+              "generations": [
+                {
+                  "id": "916c834a-f426-4450-a9ba-2910d0ef1ef8",
+                  "uid": "data.logvac.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "instances": [
+                    {
+                      "id": "a3455dff-dd0e-46f6-a923-fb6f457a4cac",
+                      "uid": 1,
+                      "hostId": "do.data.logvac.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "default",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "5aed3b53-521b-4328-8961-6715cd9cb984",
+          "uid": "monitor1",
+          "kind": "monitor",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "8fab2f8a-d7d9-4e5d-9fb8-974659b1f5d0",
+              "uid": "data.pulse",
+              "name": "data.pulse",
+              "state": "active",
+              "serviceType": "nanobox\/pulse",
+              "category": "data",
+              "clusterable": false,
+              "isSplitable": true,
+              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/8fab2f8a-d7d9-4e5d-9fb8-974659b1f5d0",
+              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/8fab2f8a-d7d9-4e5d-9fb8-974659b1f5d0\/info",
+              "generations": [
+                {
+                  "id": "fd8f60c3-5173-42e3-8a42-a6849ee5955d",
+                  "uid": "data.pulse.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "instances": [
+                    {
+                      "id": "129de255-0ffc-44d2-aa5e-e4d0bd3be468",
+                      "uid": 1,
+                      "hostId": "do.data.pulse.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "default",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "91e070ff-b455-4eea-a8b7-ed7bc9089614",
+          "uid": "mesh1",
+          "kind": "mesh",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "f9bc6cc9-1581-4f54-af1f-0638fe1343cf",
+              "uid": "data.portal",
+              "name": "data.portal",
+              "state": "active",
+              "serviceType": "nanobox\/portal",
+              "category": "data",
+              "clusterable": false,
+              "isSplitable": true,
+              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9bc6cc9-1581-4f54-af1f-0638fe1343cf",
+              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9bc6cc9-1581-4f54-af1f-0638fe1343cf\/info",
+              "generations": [
+                {
+                  "id": "7355d736-97b8-427b-891b-28f068647d15",
+                  "uid": "data.portal.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "instances": [
+                    {
+                      "id": "6f5bc15a-1d15-489e-9d53-d5cb48b9dac9",
+                      "uid": 1,
+                      "hostId": "do.data.portal.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "default",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b4a576b5-91a2-4cb1-a2b5-ebee3100b3ac",
+          "uid": "wh1",
+          "kind": "warehouse",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "1a7764a3-2a41-4bc7-8188-fff8037940e0",
+              "uid": "data.hoarder",
+              "name": "data.hoarder",
+              "state": "active",
+              "serviceType": "nanobox\/hoarder",
+              "category": "data",
+              "clusterable": false,
+              "isSplitable": true,
+              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/1a7764a3-2a41-4bc7-8188-fff8037940e0",
+              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/1a7764a3-2a41-4bc7-8188-fff8037940e0\/info",
+              "generations": [
+                {
+                  "id": "b9fa9066-adbd-4264-bdde-b424193d6946",
+                  "uid": "data.hoarder.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "instances": [
+                    {
+                      "id": "6688320d-8f4a-4152-a3a8-c56a67d66f4a",
+                      "uid": 1,
+                      "hostId": "do.data.hoarder.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "default",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4eedebaf-7e0f-47a5-92e0-4225c7736014",
+          "uid": "pusher1",
+          "kind": "pusher",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "4868772a-050f-4536-9e9c-c49b9e41bc80",
+              "uid": "data.mist",
+              "name": "data.mist",
+              "state": "active",
+              "serviceType": "nanobox\/mist",
+              "category": "data",
+              "clusterable": false,
+              "isSplitable": true,
+              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/4868772a-050f-4536-9e9c-c49b9e41bc80",
+              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/4868772a-050f-4536-9e9c-c49b9e41bc80\/info",
+              "generations": [
+                {
+                  "id": "fb381687-34f0-41ca-928d-d038e1abfa6d",
+                  "uid": "data.mist.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "instances": [
+                    {
+                      "id": "b3c920e2-f489-400d-8b8f-a4da15bdad68",
+                      "uid": 1,
+                      "hostId": "do.data.mist.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "default",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "appComponents": [
+        {
+          "id": "63df01a1-0fe0-4c5e-925e-d577975f950e",
+          "uid": "data.db",
+          "name": "data.db",
+          "state": "active",
+          "serviceType": "nanobox\/postgresql",
+          "category": "data",
+          "clusterable": false,
+          "isSplitable": true,
+          "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/63df01a1-0fe0-4c5e-925e-d577975f950e",
+          "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/63df01a1-0fe0-4c5e-925e-d577975f950e\/info",
+          "generations": [
+            {
+              "id": "7bf06d69-7b06-4669-8624-52eaf71e7a8a",
+              "uid": "data.db.gen1",
+              "state": "active",
+              "status": "online",
+              "instances": [
+                {
+                  "id": "50297f78-767e-4b38-925c-4ad711968a0e",
+                  "uid": 1,
+                  "hostId": "do.data.db.1",
+                  "hostName": "do.1.1",
+                  "state": "active",
+                  "status": "online",
+                  "role": "default",
+                  "serverSpecsId": "512mb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "f9de2867-68ba-43cb-bb37-f13c0fa08924",
+          "uid": "web.main",
+          "name": "web.main",
+          "state": "active",
+          "serviceType": "ruby",
+          "category": "web",
+          "clusterable": true,
+          "isSplitable": true,
+          "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9de2867-68ba-43cb-bb37-f13c0fa08924",
+          "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9de2867-68ba-43cb-bb37-f13c0fa08924\/info",
+          "generations": [
+            {
+              "id": "6aa88791-b69b-4d84-ad99-31ea76cdc203",
+              "uid": "web.main.gen1",
+              "state": "active",
+              "status": "online",
+              "instances": [
+                {
+                  "id": "81303537-9c6e-4ddc-a18e-b2731366b300",
+                  "uid": 1,
+                  "hostId": "do.web.main.1",
+                  "hostName": "do.1.1",
+                  "state": "active",
+                  "status": "online",
+                  "role": "default",
+                  "serverSpecsId": "512mb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

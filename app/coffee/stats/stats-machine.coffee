@@ -27,7 +27,6 @@ module.exports = class StatsMachine
     PubSub.subscribe 'STATS.SUBSCRIBE.USAGE_BREAKDOWN', (m, data)=>
       usageBreakdownMachine = new UsageBreakdownMachine()
       usageBreakdownMachine.startLoad data, @buildUrl, @makeRequest
-      @loadHrAveragedStats data
 
 
 
@@ -74,7 +73,6 @@ module.exports = class StatsMachine
     if data.entity == 'host'
       dataParams.component = ''
 
-    "https://proxy.nanobox.io/#{@appId}/pulse/latest/ram_percent?component="
 
     url = @buildUrl(metric, 'latest')
     @makeRequest url, dataParams, (result)->
@@ -94,10 +92,12 @@ module.exports = class StatsMachine
 
 
   loadHrAveragedStats : (data) ->
+    return if !data.metric?
     dataParams =
       start : data.start
       stop  : data.stop
     dataParams[data.entity] = data.entityId
+
 
     url  = @buildUrl data.metric, 'daily'
     @makeRequest url, dataParams, (result)->
