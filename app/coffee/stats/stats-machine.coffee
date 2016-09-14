@@ -45,10 +45,14 @@ module.exports = class StatsMachine
       start : data.start
       stop  : data.stop
       verb  : 'max'
-    dataParams[data.entity] = data.entityId
+    entity = data.entity
 
-    if data.entity == 'host'
+    if entity == 'host'
       dataParams.component = ''
+    else if entity == 'host-instance'
+      entity = 'host'
+
+    dataParams[entity] = data.entityId
 
     url = @buildUrl(metric, 'hourly')
     @makeRequest url, dataParams, (result)->
@@ -68,13 +72,16 @@ module.exports = class StatsMachine
   # ---------------------------------------------------------------------------------------------------
 
   loadLiveStat : (data, metric) ->
-    dataParams = {}
-    dataParams[data.entity] = data.entityId
-    dataParams.verb         = 'max'
+    dataParams =
+      verb : 'max'
+    entity = data.entity
 
-    if data.entity == 'host'
+    if entity == 'host'
       dataParams.component = ''
+    else if entity == 'host-instance'
+      entity = 'host'
 
+    dataParams[entity] = data.entityId
 
     url = @buildUrl(metric, 'latest')
     @makeRequest url, dataParams, (result)->
