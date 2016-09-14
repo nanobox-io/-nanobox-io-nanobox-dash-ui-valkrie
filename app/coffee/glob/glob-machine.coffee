@@ -54,6 +54,9 @@ module.exports = class GlobMachine
         host.entity.box.showAsReadyForDeploys()
         return
 
+    @sortBoxes @clusters, @clusterSorter, @$el
+    @sortBoxes @hosts, @hostSorter, @$el
+
   createOrUpdateHost : (newHostData) ->
     # If Host doesn't exist :
     if !@hosts[ newHostData.id ]?
@@ -77,6 +80,41 @@ module.exports = class GlobMachine
       # @hostUpdater.update host.entity, host.data, newHostData
 
     @clusters[clusterData.id] = {data:clusterData, entity:entity}
+
+
+  sortBoxes : (items, sortMethod, $parent) ->
+    ar = []
+    for key, item of items
+      ar.push item
+
+    ar.sort sortMethod
+
+    for i in [ar.length-1..0]
+      $detatchedItem = ar[i].entity.box.$node.detach()
+      $parent.prepend $detatchedItem
+
+  # Used to order an array of hosts
+  hostSorter : (a,b)->
+    if a.data.name > b.data.name
+      return 1
+    if a.data.name < b.data.name
+      return -1
+    return 0
+
+  # Used to order an array of clusters
+  clusterSorter : (a,b)->
+    # Data components always at the bottom
+    if a.data.category != 'data' && b.data.category == 'data'
+      return -1
+    if a.data.category == 'data' && b.data.category != 'data'
+      return 1
+    if a.data.name > b.data.name
+      return 1
+    if a.data.name < b.data.name
+      return -1
+    return 0
+
+
 
   subscribeToRegistrations : ->
     PubSub.subscribe 'REGISTER'                , (m, box)=> @addBox box
@@ -109,10 +147,14 @@ module.exports = class GlobMachine
       data =
         id   : host.data.bunkhouseId
         name : host.data.name
-      # Loop through all components and see if this component matches
-      for component in host.data.appComponents.concat( host.data.platformServices)
-        if component.id == componentId
-          data.current = true
-          break
+
+      # Loop through all app components on thes host and see if this component id matches
+      match = host.data.appComponents.find (component)-> component.id == componentId
+      # If nothing was found, loop through all the platform components on the host
+      if !match?
+        match = host.data.platformServices.find (service)->
+          service.components.find (component)-> component.id == componentId
+
+      if match? then data.current = true
       ar.push data
     return ar

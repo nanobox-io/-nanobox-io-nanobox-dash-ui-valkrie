@@ -1,26 +1,67 @@
 {
-  "appId": "0732603e-2c2a-481a-9b36-2c04f59e83f8",
-  "xAuthToken": "cMog6nmEvs57UNPR9fujtBqe8Fwz34QA1TYOLilSJbDXyKGhrC",
+  "appId": "a758a792-1826-454a-afae-de949e3a9bdc",
+  "xAuthToken": "Qm8gwRPAp4DkenzX6rlFcMK1aqC2Y3GOVjTyHvZfNhxLbtidSU",
   "totalDeploys": 1,
   "hosts": [
     {
-      "id": "22236f44-d622-4984-8425-3bf6e3df354a",
+      "id": "f41934b4-6b45-4282-af85-835dd686f823",
       "name": "do.1",
       "state": "active",
       "status": "online",
-      "bunkhouseId": "9c7f0ec6-195d-4e2d-a3e8-8fddaafc3403",
+      "bunkhouseId": "a0049528-6050-4006-a247-61a79fd29d22",
       "serverSpecsId": "512mb",
-      "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/hosts\/22236f44-d622-4984-8425-3bf6e3df354a",
+      "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/hosts\/f41934b4-6b45-4282-af85-835dd686f823",
       "platformServices": [
         {
-          "id": "c25dd230-c05c-4af5-a50f-4f9a1ad97039",
+          "id": "e93dcdf5-28c8-4ae7-ad2e-851e3a2935af",
+          "uid": "pusher1",
+          "kind": "pusher",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "f4dde4f6-a066-41ce-97e7-f445f2b43838",
+              "uid": "data.mist",
+              "name": "data.mist",
+              "state": "active",
+              "serviceType": "nanobox\/mist",
+              "category": "data",
+              "clusterable": false,
+              "isSplitable": true,
+              "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/f4dde4f6-a066-41ce-97e7-f445f2b43838",
+              "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/f4dde4f6-a066-41ce-97e7-f445f2b43838\/info",
+              "generations": [
+                {
+                  "id": "66064be3-7d48-4aaf-9e51-a79d27c86b45",
+                  "uid": "data.mist.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "instances": [
+                    {
+                      "id": "21107941-3979-457b-8084-c9f8bdd995dc",
+                      "uid": 1,
+                      "hostId": "do.data.mist.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "default",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "8a0c41aa-00a4-4198-ae63-72acc3c7a6e0",
           "uid": "logger1",
           "kind": "logger",
           "mode": "simple",
           "isSplitable": true,
           "components": [
             {
-              "id": "2c244e61-6503-4332-bcd8-f39f6bc822f7",
+              "id": "cf5ec810-c6b0-4973-9ec5-fee40da787d7",
               "uid": "data.logvac",
               "name": "data.logvac",
               "state": "active",
@@ -28,17 +69,17 @@
               "category": "data",
               "clusterable": false,
               "isSplitable": true,
-              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/2c244e61-6503-4332-bcd8-f39f6bc822f7",
-              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/2c244e61-6503-4332-bcd8-f39f6bc822f7\/info",
+              "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/cf5ec810-c6b0-4973-9ec5-fee40da787d7",
+              "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/cf5ec810-c6b0-4973-9ec5-fee40da787d7\/info",
               "generations": [
                 {
-                  "id": "916c834a-f426-4450-a9ba-2910d0ef1ef8",
+                  "id": "f5b98bd0-57b3-4fc0-9107-c17f13388d08",
                   "uid": "data.logvac.gen1",
                   "state": "active",
                   "status": "online",
                   "instances": [
                     {
-                      "id": "a3455dff-dd0e-46f6-a923-fb6f457a4cac",
+                      "id": "72ade24a-d456-4e7e-a2bc-30611c88dda8",
                       "uid": 1,
                       "hostId": "do.data.logvac.1",
                       "hostName": "do.1.1",
@@ -54,55 +95,14 @@
           ]
         },
         {
-          "id": "5aed3b53-521b-4328-8961-6715cd9cb984",
-          "uid": "monitor1",
-          "kind": "monitor",
-          "mode": "simple",
-          "isSplitable": true,
-          "components": [
-            {
-              "id": "8fab2f8a-d7d9-4e5d-9fb8-974659b1f5d0",
-              "uid": "data.pulse",
-              "name": "data.pulse",
-              "state": "active",
-              "serviceType": "nanobox\/pulse",
-              "category": "data",
-              "clusterable": false,
-              "isSplitable": true,
-              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/8fab2f8a-d7d9-4e5d-9fb8-974659b1f5d0",
-              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/8fab2f8a-d7d9-4e5d-9fb8-974659b1f5d0\/info",
-              "generations": [
-                {
-                  "id": "fd8f60c3-5173-42e3-8a42-a6849ee5955d",
-                  "uid": "data.pulse.gen1",
-                  "state": "active",
-                  "status": "online",
-                  "instances": [
-                    {
-                      "id": "129de255-0ffc-44d2-aa5e-e4d0bd3be468",
-                      "uid": 1,
-                      "hostId": "do.data.pulse.1",
-                      "hostName": "do.1.1",
-                      "state": "active",
-                      "status": "online",
-                      "role": "default",
-                      "serverSpecsId": "512mb"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "91e070ff-b455-4eea-a8b7-ed7bc9089614",
+          "id": "0663bd10-9fbf-4cbd-afb7-f5cd4543632f",
           "uid": "mesh1",
           "kind": "mesh",
           "mode": "simple",
           "isSplitable": true,
           "components": [
             {
-              "id": "f9bc6cc9-1581-4f54-af1f-0638fe1343cf",
+              "id": "0e16cf2c-e795-47e2-ba56-81a98ed8ef87",
               "uid": "data.portal",
               "name": "data.portal",
               "state": "active",
@@ -110,17 +110,17 @@
               "category": "data",
               "clusterable": false,
               "isSplitable": true,
-              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9bc6cc9-1581-4f54-af1f-0638fe1343cf",
-              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9bc6cc9-1581-4f54-af1f-0638fe1343cf\/info",
+              "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/0e16cf2c-e795-47e2-ba56-81a98ed8ef87",
+              "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/0e16cf2c-e795-47e2-ba56-81a98ed8ef87\/info",
               "generations": [
                 {
-                  "id": "7355d736-97b8-427b-891b-28f068647d15",
+                  "id": "ece0e748-ac8a-4fd0-9250-0f61c8ef4afa",
                   "uid": "data.portal.gen1",
                   "state": "active",
                   "status": "online",
                   "instances": [
                     {
-                      "id": "6f5bc15a-1d15-489e-9d53-d5cb48b9dac9",
+                      "id": "8dc2fef9-ea98-41c2-9ad6-6425e404cf68",
                       "uid": 1,
                       "hostId": "do.data.portal.1",
                       "hostName": "do.1.1",
@@ -136,14 +136,14 @@
           ]
         },
         {
-          "id": "b4a576b5-91a2-4cb1-a2b5-ebee3100b3ac",
+          "id": "b18c9ee8-250d-440a-a49d-545229c7bcbf",
           "uid": "wh1",
           "kind": "warehouse",
           "mode": "simple",
           "isSplitable": true,
           "components": [
             {
-              "id": "1a7764a3-2a41-4bc7-8188-fff8037940e0",
+              "id": "f56e806c-fa01-4a20-973e-723058b0156c",
               "uid": "data.hoarder",
               "name": "data.hoarder",
               "state": "active",
@@ -151,17 +151,17 @@
               "category": "data",
               "clusterable": false,
               "isSplitable": true,
-              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/1a7764a3-2a41-4bc7-8188-fff8037940e0",
-              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/1a7764a3-2a41-4bc7-8188-fff8037940e0\/info",
+              "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/f56e806c-fa01-4a20-973e-723058b0156c",
+              "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/f56e806c-fa01-4a20-973e-723058b0156c\/info",
               "generations": [
                 {
-                  "id": "b9fa9066-adbd-4264-bdde-b424193d6946",
+                  "id": "691587fb-d2ad-47fc-9f92-cf993f5d2a99",
                   "uid": "data.hoarder.gen1",
                   "state": "active",
                   "status": "online",
                   "instances": [
                     {
-                      "id": "6688320d-8f4a-4152-a3a8-c56a67d66f4a",
+                      "id": "95f6aae2-969b-42ae-9e17-fde3a84c849d",
                       "uid": 1,
                       "hostId": "do.data.hoarder.1",
                       "hostName": "do.1.1",
@@ -177,34 +177,34 @@
           ]
         },
         {
-          "id": "4eedebaf-7e0f-47a5-92e0-4225c7736014",
-          "uid": "pusher1",
-          "kind": "pusher",
+          "id": "7e4ad33e-5f12-4ddb-b517-5c8917f0cf45",
+          "uid": "monitor1",
+          "kind": "monitor",
           "mode": "simple",
           "isSplitable": true,
           "components": [
             {
-              "id": "4868772a-050f-4536-9e9c-c49b9e41bc80",
-              "uid": "data.mist",
-              "name": "data.mist",
+              "id": "429da2c2-979e-45b8-9c28-18938d03b629",
+              "uid": "data.pulse",
+              "name": "data.pulse",
               "state": "active",
-              "serviceType": "nanobox\/mist",
+              "serviceType": "nanobox\/pulse",
               "category": "data",
               "clusterable": false,
               "isSplitable": true,
-              "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/4868772a-050f-4536-9e9c-c49b9e41bc80",
-              "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/4868772a-050f-4536-9e9c-c49b9e41bc80\/info",
+              "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/429da2c2-979e-45b8-9c28-18938d03b629",
+              "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/429da2c2-979e-45b8-9c28-18938d03b629\/info",
               "generations": [
                 {
-                  "id": "fb381687-34f0-41ca-928d-d038e1abfa6d",
-                  "uid": "data.mist.gen1",
+                  "id": "fe8145df-dcc2-4ffc-8b97-0ffd1cc8ccd2",
+                  "uid": "data.pulse.gen1",
                   "state": "active",
                   "status": "online",
                   "instances": [
                     {
-                      "id": "b3c920e2-f489-400d-8b8f-a4da15bdad68",
+                      "id": "8aa402a8-9f0d-4790-9769-3ce13e86d0b8",
                       "uid": 1,
-                      "hostId": "do.data.mist.1",
+                      "hostId": "do.data.pulse.1",
                       "hostName": "do.1.1",
                       "state": "active",
                       "status": "online",
@@ -220,7 +220,7 @@
       ],
       "appComponents": [
         {
-          "id": "63df01a1-0fe0-4c5e-925e-d577975f950e",
+          "id": "6c927172-9d0c-4560-8ca7-d954d0f95bce",
           "uid": "data.db",
           "name": "data.db",
           "state": "active",
@@ -228,17 +228,17 @@
           "category": "data",
           "clusterable": false,
           "isSplitable": true,
-          "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/63df01a1-0fe0-4c5e-925e-d577975f950e",
-          "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/63df01a1-0fe0-4c5e-925e-d577975f950e\/info",
+          "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/6c927172-9d0c-4560-8ca7-d954d0f95bce",
+          "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/6c927172-9d0c-4560-8ca7-d954d0f95bce\/info",
           "generations": [
             {
-              "id": "7bf06d69-7b06-4669-8624-52eaf71e7a8a",
+              "id": "13d84315-ed4f-41c7-a5aa-6591af0cba4b",
               "uid": "data.db.gen1",
               "state": "active",
               "status": "online",
               "instances": [
                 {
-                  "id": "50297f78-767e-4b38-925c-4ad711968a0e",
+                  "id": "1864d65f-23eb-4baf-b0e8-766d7179242e",
                   "uid": 1,
                   "hostId": "do.data.db.1",
                   "hostName": "do.1.1",
@@ -250,36 +250,48 @@
               ]
             }
           ]
-        },
+        }
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "23f9f9ba-39aa-4dff-905b-3fd9a6aae9a4",
+      "uid": "web.main",
+      "name": "web.main",
+      "state": "active",
+      "serviceType": "ruby",
+      "category": "web",
+      "clusterable": true,
+      "isSplitable": true,
+      "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/23f9f9ba-39aa-4dff-905b-3fd9a6aae9a4",
+      "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/23f9f9ba-39aa-4dff-905b-3fd9a6aae9a4\/info",
+      "generations": [
         {
-          "id": "f9de2867-68ba-43cb-bb37-f13c0fa08924",
-          "uid": "web.main",
-          "name": "web.main",
+          "id": "4ed9b2fc-df67-493b-9416-9150b2a61b3f",
+          "uid": "web.main.gen2",
           "state": "active",
-          "serviceType": "ruby",
-          "category": "web",
-          "clusterable": true,
-          "isSplitable": true,
-          "actionPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9de2867-68ba-43cb-bb37-f13c0fa08924",
-          "adminPath": "\/apps\/0732603e-2c2a-481a-9b36-2c04f59e83f8\/components\/f9de2867-68ba-43cb-bb37-f13c0fa08924\/info",
-          "generations": [
+          "status": "online",
+          "instances": [
             {
-              "id": "6aa88791-b69b-4d84-ad99-31ea76cdc203",
-              "uid": "web.main.gen1",
+              "id": "8c2a3623-3ff3-43b4-b2cc-b753aae317a8",
+              "uid": 1,
+              "hostId": "do.web.main.1",
+              "hostName": "do.web.main.2.1",
               "state": "active",
               "status": "online",
-              "instances": [
-                {
-                  "id": "81303537-9c6e-4ddc-a18e-b2731366b300",
-                  "uid": 1,
-                  "hostId": "do.web.main.1",
-                  "hostName": "do.1.1",
-                  "state": "active",
-                  "status": "online",
-                  "role": "default",
-                  "serverSpecsId": "512mb"
-                }
-              ]
+              "role": "default",
+              "serverSpecsId": "512mb"
+            },
+            {
+              "id": "d2debd97-f895-4c10-8dc8-b8eff5d73017",
+              "uid": 2,
+              "hostId": "do.web.main.2",
+              "hostName": "do.web.main.2.2",
+              "state": "active",
+              "status": "online",
+              "role": "default",
+              "serverSpecsId": "512mb"
             }
           ]
         }

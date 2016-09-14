@@ -46,6 +46,7 @@ module.exports = class StatsMachine
       stop  : data.stop
       verb  : 'max'
     dataParams[data.entity] = data.entityId
+
     if data.entity == 'host'
       dataParams.component = ''
 
@@ -70,6 +71,7 @@ module.exports = class StatsMachine
     dataParams = {}
     dataParams[data.entity] = data.entityId
     dataParams.verb         = 'max'
+
     if data.entity == 'host'
       dataParams.component = ''
 

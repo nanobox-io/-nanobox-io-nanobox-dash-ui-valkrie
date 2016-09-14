@@ -5,8 +5,11 @@ module.exports = class ValkrieDataShim
 
   getApp : (id, resetApp=false) ->
     # return require './valkrie-glob-1.json'
-    return require './stats-test.json'
+    return require './sept-14-rails-test.json'
 
+
+
+    # ------------------------------------
     if resetApp
       @app = @basicApp()
 
