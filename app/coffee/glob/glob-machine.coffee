@@ -19,32 +19,32 @@ module.exports = class GlobMachine
     @addEventListeners()
 
   update : (glob) ->
-    if glob.hosts?
-      for hostData in glob.hosts
-        @createOrUpdateHost hostData
+    @fillInMissingData glob
 
-    if glob.clusters?
-      for clusterData in glob.clusters
-        for generation in clusterData.generations
-          data =
-            serviceId        : clusterData.id
-            serviceState     : clusterData.state
-            name             : clusterData.name
-            category         : clusterData.category
-            clusterable      : clusterData.clusterable
-            isSplitable      : clusterData.isSplitable
-            serviceType      : clusterData.serviceType
-            scalesHoriz      : clusterData.scalesHoriz
-            scalesRedund     : clusterData.scalesRedund
-            instances        : clusterData.instances # Delete
-            adminPath        : clusterData.adminPath
-            actionPath       : clusterData.actionPath
-            id               : generation.id
-            generationState  : generation.state
-            generationStatus : generation.status
-            members          : generation.instances
-            totalMembers     : generation.instances.length
-          @getOrCreateCluster data
+    for hostData in glob.hosts
+      @createOrUpdateHost hostData
+
+    for clusterData in glob.clusters
+      for generation in clusterData.generations
+        data =
+          serviceId        : clusterData.id
+          serviceState     : clusterData.state
+          name             : clusterData.name
+          category         : clusterData.category
+          clusterable      : clusterData.clusterable
+          isSplitable      : clusterData.isSplitable
+          serviceType      : clusterData.serviceType
+          scalesHoriz      : clusterData.scalesHoriz
+          scalesRedund     : clusterData.scalesRedund
+          adminPath        : clusterData.adminPath
+          actionPath       : clusterData.actionPath
+          uid              : clusterData.uid
+          id               : generation.id
+          generationState  : generation.state
+          generationStatus : generation.status
+          members          : generation.instances
+          totalMembers     : generation.instances.length
+        @getOrCreateCluster data
 
     # If there are no deploys, then there will only be one
     # host (bunkhouse). Show the state of this host as ready
@@ -53,6 +53,8 @@ module.exports = class GlobMachine
       for key, host of @hosts
         host.entity.box.showAsReadyForDeploys()
         return
+    else
+      PubSub.publish 'HIDE_NO_DEPLOYS_MESSSAGE'
 
     @sortBoxes @clusters, @clusterSorter, @$el
     @sortBoxes @hosts, @hostSorter, @$el
@@ -87,6 +89,7 @@ module.exports = class GlobMachine
     for key, item of items
       ar.push item
 
+    return if ar.length == 0
     ar.sort sortMethod
 
     for i in [ar.length-1..0]
@@ -127,6 +130,7 @@ module.exports = class GlobMachine
     PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> @getBox(data.id).switchSubContent 'scale-machine', data.el
     PubSub.subscribe 'SHOW.STATS'              , (m, data)=> @getBox(data.id).switchSubContent 'stats', data.el
     PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> @getBox(data.id).switchSubContent 'console', data.el
+    PubSub.subscribe 'SHOW.TUNNEL'             , (m, data)=> @getBox(data.id).switchSubContent 'tunnel', data.el
     PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=> @getBox(data.id).switchSubContent 'split', data.el
     PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=> @getBox(data.id).switchSubContent 'admin', data.el
     PubSub.subscribe 'SHOW.HOST-INTANCES'      , (m, data)=> @getBox(data.id).switchSubContent 'host-instances', data.el
@@ -158,3 +162,33 @@ module.exports = class GlobMachine
       if match? then data.current = true
       ar.push data
     return ar
+
+  # ------------------------------------ Helpers
+  fillInMissingData : (glob) ->
+    if !glob.hosts?    then glob.hosts    = []
+    if !glob.clusters? then glob.clusters = []
+    # Hosts
+    for host in glob.hosts
+      if !host.platformServices? then host.platformServices = []
+      if !host.appComponents?    then host.appComponents    = []
+      # Platform Services
+      for service in host.platformServices
+        if !service.components? then service.components = []
+        # Components
+        for component in service.components
+          @fillInMissingDataForComponent component
+      # App Components
+      for component in host.appComponents
+        @fillInMissingDataForComponent component
+
+    # Clusters
+    for cluster in glob.clusters
+      if !cluster.generations? then cluster.generations = []
+      for generation in cluster.generations
+        if !generation.instances? then generation.instances = []
+
+
+  fillInMissingDataForComponent : (component) ->
+    if !component.generations? then component.generations = []
+    for generation in component.generations
+      if !generation.instances? then component.instances = []

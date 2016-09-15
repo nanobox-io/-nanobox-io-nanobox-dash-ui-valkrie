@@ -12,13 +12,16 @@ class Valkrie
 
   # ------------------------------------ API
 
-  update : () ->
-    $.ajax
-      url         : @params.updateUrl
-      type        : 'GET'
-      contentType : "application/json;charset=utf-8"
-      error       : (request, error)=> console.log "error fetching data : #{error}"
-      success     : (data)=> @refresh data
+  update : (glob) ->
+    if !glob?
+      $.ajax
+        url         : @params.updateUrl
+        type        : 'GET'
+        contentType : "application/json;charset=utf-8"
+        error       : (request, error)=> console.log "error fetching data : #{error}"
+        success     : (data)=> @refresh data
+    else
+      @refresh glob
 
   # ------------------------------------ Helpers
 
