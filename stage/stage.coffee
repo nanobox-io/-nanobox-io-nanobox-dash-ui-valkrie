@@ -15,10 +15,5 @@ window.valkrieTesterInit = ()->
         console.log 'split service new scale ID ::'
         console.log data
 
-  window.valkrie  = new nanobox.Valkrie( $("body"), params )
-
-
-  # For local testing, just call an immediate refresh
-  # Instead of AJAXing from a data endpoint
-  # console.log dataShim.getApp()
-  valkrie.refresh dataShim.getApp()
+  window.valkrie  = new nanobox.Valkrie $("body"), params, true
+  window.dataShim.initUI()

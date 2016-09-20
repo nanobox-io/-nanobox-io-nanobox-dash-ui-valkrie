@@ -10,13 +10,13 @@ module.exports = class Updater
   # We look for items in either list that do not have a partner in the opposite list.
   # non paired items are returned
   # items with a match are passed into the `matchCb` method
-  getNonPairedItems : (newStack, oldStack, matchCb) ->
+  getNonPairedItems : (newStack, oldStack, matchCb, key="id") ->
     nonPairedNewItems = []
     nonPairedOldItems = []
     for newItem in newStack
       matchFound = false
       for oldItem in oldStack
-        if newItem.id == oldItem.id
+        if newItem[key] == oldItem[key]
           matchFound = true
           matchCb newItem, oldItem
       if !matchFound
@@ -25,7 +25,7 @@ module.exports = class Updater
     for oldItem in oldStack
       matchFound = false
       for newItem in newStack
-        if newItem.id == oldItem.id
+        if newItem[key] == oldItem[key]
           matchFound = true
       if !matchFound
         nonPairedOldItems.push oldItem

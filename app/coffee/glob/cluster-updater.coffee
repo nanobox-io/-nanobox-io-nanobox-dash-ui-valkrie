@@ -2,5 +2,59 @@ Updater = require 'glob/updater'
 
 module.exports = class ClusterUpdater extends Updater
 
-  constructor: (getBox) ->
+  constructor: (getBox, @$el) ->
     super(getBox)
+    @clusters = {}
+
+  updateClusters : (clusters) ->
+    newClusters = @collateClusterData clusters
+    oldClusters = []
+    oldClusters.push cluster.data for key, cluster of @clusters
+    # @getOrCreateCluster data
+    [nonMatchedNew, nonMatchedOld] = @getNonPairedItems newClusters, oldClusters, @updateExistingCluster
+
+    for newClusterData in nonMatchedNew
+      @createNewCluster newClusterData
+
+    for oldClusterData in nonMatchedOld
+      @destroyOldCluster oldClusterData
+
+  updateExistingCluster : (newClusterData, oldClusterData) =>
+    cluster = @clusters[newClusterData.id]
+    entity  = cluster.entity
+    @updateState newClusterData.id, oldClusterData.generationState, newClusterData.generationState
+    @clusters[newClusterData.id] = {data:newClusterData, entity:entity}
+
+  createNewCluster : (newClusterData) ->
+    entity = new nanobox.ClobberBox()
+    entity.build @$el, nanobox.ClobberBox.CLUSTER, newClusterData
+    @clusters[newClusterData.id] = {data:newClusterData, entity:entity}
+
+  destroyOldCluster : (oldClusterData) ->
+    @clusters[oldClusterData.id].entity.destroy()
+    delete @clusters[oldClusterData.id]
+
+  collateClusterData : (clusters) ->
+    ar = []
+    for clusterData in clusters
+      for generationData in clusterData.generations
+        data =
+          serviceId        : clusterData.id
+          serviceState     : clusterData.state
+          name             : clusterData.name
+          category         : clusterData.category
+          clusterable      : clusterData.clusterable
+          isSplitable      : clusterData.isSplitable
+          serviceType      : clusterData.serviceType
+          scalesHoriz      : clusterData.scalesHoriz
+          scalesRedund     : clusterData.scalesRedund
+          adminPath        : clusterData.adminPath
+          actionPath       : clusterData.actionPath
+          uid              : clusterData.uid
+          id               : generationData.id
+          generationState  : generationData.state
+          generationStatus : generationData.status
+          members          : generationData.instances
+          totalMembers     : generationData.instances.length
+        ar.push data
+    return ar

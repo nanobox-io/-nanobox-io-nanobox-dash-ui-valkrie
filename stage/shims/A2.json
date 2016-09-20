@@ -1,0 +1,95 @@
+{
+  "appId": "a758a792-1826-454a-afae-de949e3a9bdc",
+  "xAuthToken": "Qm8gwRPAp4DkenzX6rlFcMK1aqC2Y3GOVjTyHvZfNhxLbtidSU",
+  "totalDeploys": 1,
+  "hosts": [
+    {
+      "id": "f41934b4-6b45-4282-af85-835dd686f823",
+      "name": "do.1",
+      "state": "active",
+      "status": "online",
+      "bunkhouseId": "a0049528-6050-4006-a247-61a79fd29d22",
+      "serverSpecsId": "512mb",
+      "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/hosts\/f41934b4-6b45-4282-af85-835dd686f823",
+      "appComponents": [
+        {
+          "id": "6c927172-9d0c-4560-8ca7-d954d0f95bce",
+          "uri":"f41934b4-6b45-4282-af85-835dd686f823/6c927172-9d0c-4560-8ca7-d954d0f95bce",
+          "uid": "data.db",
+          "name": "data.db",
+          "state": "active",
+          "serviceType": "nanobox\/postgresql",
+          "category": "data",
+          "clusterable": false,
+          "isSplitable": true,
+          "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/6c927172-9d0c-4560-8ca7-d954d0f95bce",
+          "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/6c927172-9d0c-4560-8ca7-d954d0f95bce\/info",
+          "generations": [
+            {
+              "id": "13d84315-ed4f-41c7-a5aa-6591af0cba4b",
+              "uid": "data.db.gen1",
+              "state": "active",
+              "status": "online",
+              "instances": [
+                {
+                  "id": "1864d65f-23eb-4baf-b0e8-766d7179242e",
+                  "uid": 1,
+                  "hostId": "do.data.db.1",
+                  "hostName": "do.1.1",
+                  "state": "active",
+                  "status": "online",
+                  "role": "default",
+                  "serverSpecsId": "512mb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  ,"clusters": [
+    {
+      "id": "23f9f9ba-39aa-4dff-905b-3fd9a6aae9a4",
+      "uid": "web.main",
+      "name": "web.main",
+      "state": "provisioning",
+      "serviceType": "ruby",
+      "category": "web",
+      "clusterable": true,
+      "isSplitable": true,
+      "actionPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/23f9f9ba-39aa-4dff-905b-3fd9a6aae9a4",
+      "adminPath": "\/apps\/a758a792-1826-454a-afae-de949e3a9bdc\/components\/23f9f9ba-39aa-4dff-905b-3fd9a6aae9a4\/info",
+      "generations": [
+        {
+          "id": "4ed9b2fc-df67-493b-9416-9150b2a61b3f",
+          "uid": "web.main.gen2",
+          "state": "provisioning",
+          "status": "online",
+          "instances": [
+            {
+              "id": "8c2a3623-3ff3-43b4-b2cc-b753aae317a8",
+              "uid": 1,
+              "hostId": "do.web.main.1",
+              "hostName": "do.web.main.2.1",
+              "state": "active",
+              "status": "online",
+              "role": "default",
+              "serverSpecsId": "512mb"
+            },
+            {
+              "id": "d2debd97-f895-4c10-8dc8-b8eff5d73017",
+              "uid": 2,
+              "hostId": "do.web.main.2",
+              "hostName": "do.web.main.2.2",
+              "state": "active",
+              "status": "online",
+              "role": "default",
+              "serverSpecsId": "512mb"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

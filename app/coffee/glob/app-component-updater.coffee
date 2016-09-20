@@ -5,23 +5,17 @@ module.exports = class AppComponentUpdater extends Updater
   constructor: (getBox, @getParentHostOfComponent, @generationUpdater) ->
     super getBox
 
-  updateComponents : (hostId, oldComponents, newComponents)->
-    # Called with every component found to exist in both the
-    # oldComponents array and new Components array
-    cb = (newComponent, oldComponent)=>
-      @updateComponent newComponent.id, oldComponent, newComponent
-
-    [nonMatchedNew, nonMatchedOld] = @getNonPairedItems newComponents, oldComponents, cb
+  updateComponents : (host, oldComponents, newComponents)->
+    [nonMatchedNew, nonMatchedOld] = @getNonPairedItems newComponents, oldComponents, @updateComponent, 'uri'
 
     # Brand new components
     for newComponent in nonMatchedNew
-      @getBox(hostId).addComponent newComponent
+      host.addComponent newComponent
 
     # Old components that should be destroyed
     for oldComponent in nonMatchedOld
-      @getBox(hostId).removeComponent oldComponent.id
+      host.removeComponent oldComponent.id
 
-  updateComponent : (componentId, oldComponent, newComponent) ->
-    @generationUpdater.updateGenerations componentId, oldComponent.generations, newComponent.generations
-
+  updateComponent : (newComponent, oldComponent) =>
+    @generationUpdater.updateGenerations newComponent.id, newComponent.uri, oldComponent.generations, newComponent.generations
     # @updateState newComponent.id, oldComponent.state, newComponent.state

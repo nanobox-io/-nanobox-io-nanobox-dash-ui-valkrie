@@ -3,8 +3,8 @@ GlobMachine  = require 'glob/glob-machine'
 
 class Valkrie
 
-  constructor: (@$el, @params) ->
-    @statsMachine = new StatsMachine()
+  constructor: (@$el, @params, isTesting=false) ->
+    @statsMachine = new StatsMachine(isTesting)
     $boxes = $ '<div class="boxes" />'
     @$el.append $boxes
     @registerForPubSubCalls()

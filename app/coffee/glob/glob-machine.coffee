@@ -6,82 +6,34 @@ GenerationUpdater   = require 'glob/generation-updater'
 module.exports = class GlobMachine
 
   constructor: (@$el) ->
-    @hosts    = {}
-    @clusters = {}
     @boxes    = {}
 
     @generationUpdater   = new GenerationUpdater @getBox, @getParentHostOfComponent
     @appComponentUpdater = new AppComponentUpdater @getBox, @getParentHostOfComponent, @generationUpdater
-    @hostUpdater         = new HostUpdater @getBox, @appComponentUpdater
-    @clusterUpdater      = new ClusterUpdater @getBox, @appComponentUpdater
+    @hostUpdater         = new HostUpdater @getBox, @appComponentUpdater, @$el
+    @clusterUpdater      = new ClusterUpdater @getBox, @$el
 
     @subscribeToRegistrations()
     @addEventListeners()
 
   update : (glob) ->
     @fillInMissingData glob
-
-    for hostData in glob.hosts
-      @createOrUpdateHost hostData
-
-    for clusterData in glob.clusters
-      for generation in clusterData.generations
-        data =
-          serviceId        : clusterData.id
-          serviceState     : clusterData.state
-          name             : clusterData.name
-          category         : clusterData.category
-          clusterable      : clusterData.clusterable
-          isSplitable      : clusterData.isSplitable
-          serviceType      : clusterData.serviceType
-          scalesHoriz      : clusterData.scalesHoriz
-          scalesRedund     : clusterData.scalesRedund
-          adminPath        : clusterData.adminPath
-          actionPath       : clusterData.actionPath
-          uid              : clusterData.uid
-          id               : generation.id
-          generationState  : generation.state
-          generationStatus : generation.status
-          members          : generation.instances
-          totalMembers     : generation.instances.length
-        @getOrCreateCluster data
+    @hostUpdater.updateHosts glob.hosts
+    @clusterUpdater.updateClusters glob.clusters
 
     # If there are no deploys, then there will only be one
     # host (bunkhouse). Show the state of this host as ready
     # for deploy
     if glob.totalDeploys == 0
-      for key, host of @hosts
+      nanobox.noDeploys = true
+      for key, host of @hostUpdater.hosts
         host.entity.box.showAsReadyForDeploys()
         return
     else
       PubSub.publish 'HIDE_NO_DEPLOYS_MESSSAGE'
 
-    @sortBoxes @clusters, @clusterSorter, @$el
-    @sortBoxes @hosts, @hostSorter, @$el
-
-  createOrUpdateHost : (newHostData) ->
-    # If Host doesn't exist :
-    if !@hosts[ newHostData.id ]?
-      entity = new nanobox.ClobberBox()
-      entity.build @$el, nanobox.ClobberBox.HOST, newHostData
-    # get existing host :
-    else
-      host   = @hosts[ newHostData.id ]
-      entity = host.entity
-      @hostUpdater.update host.entity, host.data, newHostData
-
-    @hosts[newHostData.id] = {data:newHostData, entity:entity}
-
-  getOrCreateCluster : (clusterData) ->
-    if !@clusters[clusterData.id]?
-      entity = new nanobox.ClobberBox()
-      entity.build @$el, nanobox.ClobberBox.CLUSTER, clusterData
-    else
-      cluster = @clusters[clusterData.id]
-      entity = cluster.entity
-      # @hostUpdater.update host.entity, host.data, newHostData
-
-    @clusters[clusterData.id] = {data:clusterData, entity:entity}
+    @sortBoxes @clusterUpdater.clusters, @clusterSorter, @$el
+    @sortBoxes @hostUpdater.hosts, @hostSorter, @$el
 
 
   sortBoxes : (items, sortMethod, $parent) ->
@@ -118,36 +70,36 @@ module.exports = class GlobMachine
     return 0
 
 
-
   subscribeToRegistrations : ->
     PubSub.subscribe 'REGISTER'                , (m, box)=> @addBox box
     PubSub.subscribe 'UNREGISTER'              , (m, box)=> @removeBox box
 
   addEventListeners : () ->
-    PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> @getBox(data.id).switchSubContent 'app-components', data.el
-    PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> @getBox(data.id).switchSubContent 'platform-components', data.el
+    PubSub.subscribe 'SHOW.APP_COMPONENTS'     , (m, data)=> @getBox(data.uri).switchSubContent 'app-components', data.el
+    PubSub.subscribe 'SHOW.PLATFORM_COMPONENTS', (m, data)=> @getBox(data.uri).switchSubContent 'platform-components', data.el
     PubSub.subscribe 'SHOW.INSTANCES'          , (m, data)=>
-    PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> @getBox(data.id).switchSubContent 'scale-machine', data.el
-    PubSub.subscribe 'SHOW.STATS'              , (m, data)=> @getBox(data.id).switchSubContent 'stats', data.el
-    PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> @getBox(data.id).switchSubContent 'console', data.el
-    PubSub.subscribe 'SHOW.TUNNEL'             , (m, data)=> @getBox(data.id).switchSubContent 'tunnel', data.el
-    PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=> @getBox(data.id).switchSubContent 'split', data.el
-    PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=> @getBox(data.id).switchSubContent 'admin', data.el
-    PubSub.subscribe 'SHOW.HOST-INTANCES'      , (m, data)=> @getBox(data.id).switchSubContent 'host-instances', data.el
+    PubSub.subscribe 'SHOW.SCALE'              , (m, data)=> @getBox(data.uri).switchSubContent 'scale-machine', data.el
+    PubSub.subscribe 'SHOW.STATS'              , (m, data)=> @getBox(data.uri).switchSubContent 'stats', data.el
+    PubSub.subscribe 'SHOW.CONSOLE'            , (m, data)=> @getBox(data.uri).switchSubContent 'console', data.el
+    PubSub.subscribe 'SHOW.TUNNEL'             , (m, data)=> @getBox(data.uri).switchSubContent 'tunnel', data.el
+    PubSub.subscribe 'SHOW.SPLIT'              , (m, data)=> @getBox(data.uri).switchSubContent 'split', data.el
+    PubSub.subscribe 'SHOW.ADMIN'              , (m, data)=> @getBox(data.uri).switchSubContent 'admin', data.el
+    PubSub.subscribe 'SHOW.HOST-INTANCES'      , (m, data)=> @getBox(data.uri).switchSubContent 'host-instances', data.el
 
-  getBox    : (id)  => @boxes[id]
-  getParentHostOfComponent : (id) =>
+  getBox : (id)  => @boxes[id]
+
+  getParentHostOfComponent : (uri) =>
     for key, box of @boxes
-      if box.hasComponentWithId id
+      if box.hasComponentWithUri uri
         return box
 
-  addBox    : (box) -> @boxes[box.id] = box
-  removeBox : (box) -> delete @boxes[box.id]
+  addBox    : (box) -> @boxes[box.uri] = box
+  removeBox : (box) -> delete @boxes[box.uri]
 
   # This is used by the splitter to know what bunkhouses are available for moving components onto
   getBunkhouses : (componentId) ->
     ar = []
-    for id, host of @hosts
+    for id, host of @hostUpdater.hosts
       data =
         id   : host.data.bunkhouseId
         name : host.data.name
@@ -170,7 +122,8 @@ module.exports = class GlobMachine
     # Hosts
     for host in glob.hosts
       if !host.platformServices? then host.platformServices = []
-      if !host.appComponents?    then host.appComponents    = []
+      if !host.appComponents?
+        host.appComponents    = []
       # Platform Services
       for service in host.platformServices
         if !service.components? then service.components = []

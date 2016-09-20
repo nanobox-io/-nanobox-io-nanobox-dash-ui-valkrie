@@ -6,8 +6,9 @@ UsageBreakdownMachine = require 'stats/usage-breakdown-machine'
 
 module.exports = class StatsMachine
 
-  constructor: () ->
-    @subscribeToStatRequests()
+  constructor: (isTesting) ->
+    if !isTesting
+      @subscribeToStatRequests()
 
   setAppInfo : (@appId, @xAuthToken) ->
 
