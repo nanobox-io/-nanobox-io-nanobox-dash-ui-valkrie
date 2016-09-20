@@ -2,6 +2,9 @@ module.exports = class ValkrieDataShim
 
   constructor : () ->
     @blobs =
+      TUES1  : require './TUES1.json'
+      TUES2b : require './TUES2-b.json'
+      TUES2  : require './TUES2.json'
       A  : require './A.json'
       A2 : require './A2.json'
       B  : require './B.json'
