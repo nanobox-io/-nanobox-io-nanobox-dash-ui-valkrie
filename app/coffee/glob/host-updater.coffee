@@ -23,11 +23,13 @@ module.exports = class HostUpdater extends Updater
     host = @hosts[ newHostData.id ].entity
 
     @updateState newHostData.id, oldHostData.state, newHostData.state
+
+    host.box.data = newHostData
     @appComponentUpdater.updateComponents host.box, oldHostData.appComponents, newHostData.appComponents
 
     host.data     = newHostData
-    host.box.data = newHostData
     @hosts[newHostData.id] = {data:newHostData, entity:host}
+
 
 
   createNewHost : (newHostData) ->
