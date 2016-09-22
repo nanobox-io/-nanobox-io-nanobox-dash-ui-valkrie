@@ -2,7 +2,7 @@ Updater = require 'glob/updater'
 
 module.exports = class ClusterUpdater extends Updater
 
-  constructor: (getBox, @$el) ->
+  constructor: (getBox, @$el, @clusterMemberUpdater) ->
     super(getBox)
     @clusters = {}
 
@@ -24,6 +24,7 @@ module.exports = class ClusterUpdater extends Updater
     entity  = cluster.entity
     @updateState newClusterData.id, oldClusterData.generationState, newClusterData.generationState
     @clusters[newClusterData.id] = {data:newClusterData, entity:entity}
+    @clusterMemberUpdater.updateMembers entity.box, oldClusterData.members, newClusterData.members
 
   createNewCluster : (newClusterData) ->
     entity = new nanobox.ClobberBox()

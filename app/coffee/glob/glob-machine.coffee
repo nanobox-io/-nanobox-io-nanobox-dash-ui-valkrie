@@ -1,17 +1,19 @@
-HostUpdater         = require 'glob/host-updater'
-ClusterUpdater      = require 'glob/cluster-updater'
-AppComponentUpdater = require 'glob/app-component-updater'
-GenerationUpdater   = require 'glob/generation-updater'
+HostUpdater          = require 'glob/host-updater'
+ClusterUpdater       = require 'glob/cluster-updater'
+ClusterMemberUpdater = require 'glob/cluster-member-updater'
+AppComponentUpdater  = require 'glob/app-component-updater'
+GenerationUpdater    = require 'glob/generation-updater'
 
 module.exports = class GlobMachine
 
   constructor: (@$el) ->
     @boxes    = {}
 
-    @generationUpdater   = new GenerationUpdater @getBox, @getParentHostOfComponent
-    @appComponentUpdater = new AppComponentUpdater @getBox, @getParentHostOfComponent, @generationUpdater
-    @hostUpdater         = new HostUpdater @getBox, @appComponentUpdater, @$el
-    @clusterUpdater      = new ClusterUpdater @getBox, @$el
+    @generationUpdater    = new GenerationUpdater @getBox, @getParentHostOfComponent
+    @appComponentUpdater  = new AppComponentUpdater @getBox, @getParentHostOfComponent, @generationUpdater
+    @hostUpdater          = new HostUpdater @getBox, @appComponentUpdater, @$el
+    @clusterMemberUpdater = new ClusterMemberUpdater @getBox, @$el
+    @clusterUpdater       = new ClusterUpdater @getBox, @$el, @clusterMemberUpdater
 
     @subscribeToRegistrations()
     @addEventListeners()
