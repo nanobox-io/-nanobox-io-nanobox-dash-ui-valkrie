@@ -25,6 +25,8 @@ module.exports = class ClusterUpdater extends Updater
     @updateState newClusterData.id, oldClusterData.generationState, newClusterData.generationState
     @clusters[newClusterData.id] = {data:newClusterData, entity:entity}
     @clusterMemberUpdater.updateMembers entity.box, oldClusterData.members, newClusterData.members
+    entity.box.data = newClusterData
+    # console.log entity
 
   createNewCluster : (newClusterData) ->
     entity = new nanobox.ClobberBox()
