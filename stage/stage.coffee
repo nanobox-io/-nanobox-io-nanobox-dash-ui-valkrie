@@ -15,5 +15,6 @@ window.valkrieTesterInit = ()->
         console.log 'split service new scale ID ::'
         console.log data
 
-  window.valkrie  = new nanobox.Valkrie $("body"), params, true
+  dontLoadStats = false
+  window.valkrie  = new nanobox.Valkrie $("body"), params, dontLoadStats
   window.dataShim.initUI()

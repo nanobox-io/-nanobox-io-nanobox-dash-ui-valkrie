@@ -1,0 +1,263 @@
+{
+"appId": "19c6234e-7aa4-4902-be9d-a113280d7269",
+"appName": "home",
+"xAuthToken": "HOIosxRVar13L8AfK6wkFeCn0M79BltDdXgN5QiJW4bhUpEZyu",
+"totalDeploys": 1,
+"hosts": [
+{
+"id": "f4a4e6a2-6793-4425-b21c-7b5ae792ec8a",
+"name": "do.1",
+"name_long": "do.1.1",
+"state": "active",
+"status": "online",
+"bunkhouseId": "e6c1c835-5672-4a06-a4ce-6925422f7757",
+"serverSpecsId": "512mb",
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/hosts/f4a4e6a2-6793-4425-b21c-7b5ae792ec8a",
+"platformServices": [
+{
+"id": "4d580332-1158-443a-b56c-c478fabf1b28",
+"uid": "pusher1",
+"kind": "pusher",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "e291579f-cf2c-4dc3-8eb6-397417fdec2b",
+"uri": "f4a4e6a2-6793-4425-b21c-7b5ae792ec8a/e291579f-cf2c-4dc3-8eb6-397417fdec2b",
+"uid": "data.mist",
+"name": "data.mist",
+"state": "active",
+"serviceType": "nanobox/mist",
+"category": "data",
+"clusterable": false,
+"isSplitable": true,
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/e291579f-cf2c-4dc3-8eb6-397417fdec2b",
+"adminPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/e291579f-cf2c-4dc3-8eb6-397417fdec2b/info",
+"generations": [
+{
+"id": "da9379b8-db43-4f7a-8475-66f80e91974a",
+"uid": "data.mist.gen1",
+"state": "active",
+"status": "online",
+"instances": [
+{
+"id": "52becae1-ab88-4d56-bc2c-b2f95765a281",
+"uid": 1,
+"hostId": "do.data.mist.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "default",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "bb7c1950-71a4-4423-9701-17f2e79dea5b",
+"uid": "mesh1",
+"kind": "mesh",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "d4fa8cca-42dc-4c55-8f94-b611508cf7b8",
+"uri": "f4a4e6a2-6793-4425-b21c-7b5ae792ec8a/d4fa8cca-42dc-4c55-8f94-b611508cf7b8",
+"uid": "data.portal",
+"name": "data.portal",
+"state": "active",
+"serviceType": "nanobox/portal",
+"category": "data",
+"clusterable": false,
+"isSplitable": true,
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/d4fa8cca-42dc-4c55-8f94-b611508cf7b8",
+"adminPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/d4fa8cca-42dc-4c55-8f94-b611508cf7b8/info",
+"generations": [
+{
+"id": "85edab08-a017-4739-ac23-4b67a34bf3e9",
+"uid": "data.portal.gen1",
+"state": "active",
+"status": "online",
+"instances": [
+{
+"id": "aa221927-e9ef-436c-8f18-8edf5336fea0",
+"uid": 1,
+"hostId": "do.data.portal.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "default",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "ac9878a8-6fdc-4e68-a4ab-9b89a090720f",
+"uid": "monitor1",
+"kind": "monitor",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "c69b3c4c-6962-46f9-9abc-8035a1704bdf",
+"uri": "f4a4e6a2-6793-4425-b21c-7b5ae792ec8a/c69b3c4c-6962-46f9-9abc-8035a1704bdf",
+"uid": "data.pulse",
+"name": "data.pulse",
+"state": "active",
+"serviceType": "nanobox/pulse",
+"category": "data",
+"clusterable": false,
+"isSplitable": true,
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/c69b3c4c-6962-46f9-9abc-8035a1704bdf",
+"adminPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/c69b3c4c-6962-46f9-9abc-8035a1704bdf/info",
+"generations": [
+{
+"id": "719e0649-9386-4e56-8777-7c9fd6ce226f",
+"uid": "data.pulse.gen1",
+"state": "active",
+"status": "online",
+"instances": [
+{
+"id": "eafb6c53-763a-4ba9-8be7-e7606ca4cce1",
+"uid": 1,
+"hostId": "do.data.pulse.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "default",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "11c1fb9d-e223-491c-bd1a-b6d932b0f056",
+"uid": "wh1",
+"kind": "warehouse",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "6000dbbb-42b8-485a-973c-b00914bd98f4",
+"uri": "f4a4e6a2-6793-4425-b21c-7b5ae792ec8a/6000dbbb-42b8-485a-973c-b00914bd98f4",
+"uid": "data.hoarder",
+"name": "data.hoarder",
+"state": "active",
+"serviceType": "nanobox/hoarder",
+"category": "data",
+"clusterable": false,
+"isSplitable": true,
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/6000dbbb-42b8-485a-973c-b00914bd98f4",
+"adminPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/6000dbbb-42b8-485a-973c-b00914bd98f4/info",
+"generations": [
+{
+"id": "e3503cbe-5a12-4bdf-9a34-109b77fd1ff8",
+"uid": "data.hoarder.gen1",
+"state": "active",
+"status": "online",
+"instances": [
+{
+"id": "552d523e-13e6-48c7-9216-fa1ccadccee6",
+"uid": 1,
+"hostId": "do.data.hoarder.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "default",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "9a723a1f-b9f5-4a1d-83ef-39031bc2c2de",
+"uid": "logger1",
+"kind": "logger",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "e126e625-d890-498d-bdb5-becba2774eb1",
+"uri": "f4a4e6a2-6793-4425-b21c-7b5ae792ec8a/e126e625-d890-498d-bdb5-becba2774eb1",
+"uid": "data.logvac",
+"name": "data.logvac",
+"state": "active",
+"serviceType": "nanobox/logvac",
+"category": "data",
+"clusterable": false,
+"isSplitable": true,
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/e126e625-d890-498d-bdb5-becba2774eb1",
+"adminPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/e126e625-d890-498d-bdb5-becba2774eb1/info",
+"generations": [
+{
+"id": "02d16fc5-4913-4409-9513-4e1de8819928",
+"uid": "data.logvac.gen3",
+"state": "active",
+"status": "online"
+}
+]
+}
+]
+}
+]
+}
+],
+"clusters": [
+{
+"id": "fa09423d-c87c-4e61-8786-ae9691ae47b5",
+"uri": "fa09423d-c87c-4e61-8786-ae9691ae47b5",
+"uid": "web.site",
+"name": "web.site",
+"state": "active",
+"serviceType": "nanobox-io/nanobox-engine-tolmark-gulp",
+"category": "web",
+"clusterable": true,
+"isSplitable": true,
+"actionPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/fa09423d-c87c-4e61-8786-ae9691ae47b5",
+"adminPath": "/apps/19c6234e-7aa4-4902-be9d-a113280d7269/components/fa09423d-c87c-4e61-8786-ae9691ae47b5/info",
+"generations": [
+{
+"id": "8175de9c-dd71-41d0-84b8-4d7ed09eed89",
+"uid": "web.site.gen10",
+"state": "active",
+"status": "online",
+"instances": [
+{
+"id": "e57aa70e-4b3c-4dbb-9fe9-ee2b69e2ef80",
+"uid": 1,
+"hostId": "do.web.site.1",
+"hostName": "do.web.site.10.1",
+"state": "active",
+"status": "online",
+"role": "default",
+"serverSpecsId": "512mb"
+},
+{
+"id": "948c04fc-f8b3-4e6f-bbe2-5cbe89441a4f",
+"uid": 2,
+"hostId": "do.web.site.2",
+"hostName": "do.web.site.10.2",
+"state": "active",
+"status": "online",
+"role": "default",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+}

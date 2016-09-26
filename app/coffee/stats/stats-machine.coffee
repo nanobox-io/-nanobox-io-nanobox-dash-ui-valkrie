@@ -50,7 +50,7 @@ module.exports = class StatsMachine
 
     if entity == 'host'
       dataParams.component = ''
-    else if entity == 'host-instance'
+    else if entity == 'host-instance' or entity == 'member'
       entity = 'host'
 
     dataParams[entity] = data.entityId
@@ -79,7 +79,7 @@ module.exports = class StatsMachine
 
     if entity == 'host'
       dataParams.component = ''
-    else if entity == 'host-instance'
+    else if entity == 'host-instance' or entity == 'member'
       entity = 'host'
 
     dataParams[entity] = data.entityId
@@ -104,16 +104,24 @@ module.exports = class StatsMachine
   loadHrAveragedStats : (data) ->
     return if !data.metric?
     dataParams =
-      start : data.start
-      stop  : data.stop
-    dataParams[data.entity] = data.entityId
+      start  : data.start
+      stop   : '0h' #data.stop
+    entity = data.entity
+
+    if entity == 'host'
+      dataParams.member = ''
+    if entity == 'member' or entity == 'host-instance'
+      entity = 'host'
+
+
+    dataParams[entity] = data.entityId
 
 
     url  = @buildUrl data.metric, 'daily'
     @makeRequest url, dataParams, (result)->
       for item in result
         if item.value != -1
-          item.value /= 10
+          item.value /= 100
       data.callback result
 
 
