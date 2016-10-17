@@ -10,7 +10,7 @@ module.exports = class StatsMachine
     if !isTesting
       @subscribeToStatRequests()
 
-  setAppInfo : (@appId, @xAuthToken) ->
+  setAppInfo : (@appId, @xAuthToken, @proxy) ->
 
   subscribeToStatRequests : () ->
 
@@ -144,4 +144,4 @@ module.exports = class StatsMachine
   @metric   ex: 'ram', 'cpu', etc
   @interval ex: 'daily', 'latest', etc
   ###
-  buildUrl : (metric, interval) => "https://proxy.nanobox.io/#{@appId}/pulse/#{interval}/#{metric}_percent"
+  buildUrl : (metric, interval) => "https://#{@proxy}/#{@appId}/pulse/#{interval}/#{metric}_percent"

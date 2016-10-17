@@ -26,7 +26,7 @@ class Valkrie
   # ------------------------------------ Helpers
 
   refresh : (dataGlob) ->
-    @statsMachine.setAppInfo dataGlob.appId, dataGlob.xAuthToken
+    @statsMachine.setAppInfo dataGlob.appId, dataGlob.xAuthToken, dataGlob.proxy
     @globMachine.update dataGlob
 
   # UI Events triggered from within valkrie
