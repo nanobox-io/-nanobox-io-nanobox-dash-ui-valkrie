@@ -57,7 +57,7 @@ module.exports = class ClusterUpdater extends Updater
           generationStatus  : generationData.status
           members           : generationData.instances
           totalMembers      : generationData.instances.length
-          clusterShapeIs    : clusterData.clusterShapeIs
+          clusterShapeIs    : generationData.clusterShapeIs
           clusterShapeCanBe : clusterData.clusterShapeCanBe
           topology          : clusterData.topology
         ar.push data
