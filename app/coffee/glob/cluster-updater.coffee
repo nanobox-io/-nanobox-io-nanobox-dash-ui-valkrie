@@ -42,22 +42,23 @@ module.exports = class ClusterUpdater extends Updater
     for clusterData in clusters
       for generationData in clusterData.generations
         data =
-          serviceId        : clusterData.id
-          serviceState     : clusterData.state
-          name             : clusterData.name
-          category         : clusterData.category
-          clusterable      : clusterData.clusterable
-          isSplitable      : clusterData.isSplitable
-          serviceType      : clusterData.serviceType
-          scalesHoriz      : clusterData.scalesHoriz
-          scalesRedund     : clusterData.scalesRedund
-          adminPath        : clusterData.adminPath
-          actionPath       : clusterData.actionPath
-          uid              : clusterData.uid
-          id               : generationData.id
-          generationState  : generationData.state
-          generationStatus : generationData.status
-          members          : generationData.instances
-          totalMembers     : generationData.instances.length
+          serviceId         : clusterData.id
+          serviceState      : clusterData.state
+          name              : clusterData.name
+          category          : clusterData.category
+          clusterable       : clusterData.clusterable
+          isSplitable       : clusterData.isSplitable
+          serviceType       : clusterData.serviceType
+          adminPath         : clusterData.adminPath
+          actionPath        : clusterData.actionPath
+          uid               : clusterData.uid
+          id                : generationData.id
+          generationState   : generationData.state
+          generationStatus  : generationData.status
+          members           : generationData.instances
+          totalMembers      : generationData.instances.length
+          clusterShapeIs    : clusterData.clusterShapeIs
+          clusterShapeCanBe : clusterData.clusterShapeCanBe
+          topology          : clusterData.topology
         ar.push data
     return ar

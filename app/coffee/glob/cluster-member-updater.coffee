@@ -7,7 +7,6 @@ module.exports = class ClusterMemberUpdater extends Updater
 
   updateMembers : (@cluster, oldMembers, newMembers)->
     [nonMatchedNew, nonMatchedOld] = @getNonPairedItems newMembers, oldMembers, @updateMember, 'id'
-    console.log @cluster
     # Brand new components
     for newMember in nonMatchedNew
       @cluster.addMember newMember

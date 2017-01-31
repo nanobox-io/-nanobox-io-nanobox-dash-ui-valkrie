@@ -2,7 +2,8 @@ module.exports = class ValkrieDataShim
 
   constructor : () ->
     @blobs =
-      GUIDES    : require './GUIDES.json'
+      elixir  : require './elixir.json'
+      john    : require './john.json'
 
   getApp : (id='default', resetApp=false) -> @blobs[id]
 
