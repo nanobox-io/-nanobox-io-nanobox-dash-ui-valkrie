@@ -104,8 +104,9 @@ module.exports = class GlobMachine
     ar = []
     for id, host of @hostUpdater.hosts
       data =
-        id   : host.data.bunkhouseId
-        name : host.data.name
+        id     : host.data.bunkhouseId
+        name   : host.data.name
+        status : host.data.status
 
       # Loop through all app components on thes host and see if this component id matches
       match = host.data.appComponents.find (component)-> component.id == componentId
