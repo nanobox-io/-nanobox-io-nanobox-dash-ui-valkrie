@@ -106,7 +106,7 @@ module.exports = class GlobMachine
       data =
         id     : host.data.bunkhouseId
         name   : host.data.name
-        status : host.data.status
+        state  : host.data.state
 
       # Loop through all app components on thes host and see if this component id matches
       match = host.data.appComponents.find (component)-> component.id == componentId
