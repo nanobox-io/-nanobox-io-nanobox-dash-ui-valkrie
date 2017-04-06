@@ -7,7 +7,8 @@ UsageBreakdownMachine = require 'stats/usage-breakdown-machine'
 module.exports = class StatsMachine
 
   constructor: (@isTesting) ->
-
+    @liveStatIntervals = {}
+    @liveStatsRefreshRate = 10 # Seconds between live stat updates
 
   setAppInfo : (@appId, @xAuthToken, @proxy) ->
     if !@isTesting && @proxy?
@@ -20,8 +21,16 @@ module.exports = class StatsMachine
         @loadHistoricStat data, metric
 
     PubSub.subscribe 'STATS.SUBSCRIBE.LIVE', (m, data)=>
-      for metric in data.metrics
-        @loadLiveStat data, metric
+      getLiveStats = ()=>
+        for metric in data.metrics
+          @loadLiveStat data, metric
+
+      getLiveStats data
+      @liveStatIntervals[data.uid] = setInterval getLiveStats, @liveStatsRefreshRate * 1000
+
+    PubSub.subscribe 'STATS.UNSUBSCRIBE.LIVE', (m, data)=>
+      clearInterval @liveStatIntervals[data.uid]
+      delete @liveStatIntervals[data.uid]
 
     PubSub.subscribe 'STATS.SUBSCRIBE.HOURLY_AVERAGE', (m, data)=>
       @loadHrAveragedStats data
