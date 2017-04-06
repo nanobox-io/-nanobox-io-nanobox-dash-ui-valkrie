@@ -8,7 +8,7 @@ module.exports = class StatsMachine
 
   constructor: (@isTesting) ->
     @liveStatIntervals = {}
-    @liveStatsRefreshRate = 10 # Seconds between live stat updates
+    @liveStatsRefreshRate = 60 # Seconds between live stat updates
 
   setAppInfo : (@appId, @xAuthToken, @proxy) ->
     if !@isTesting && @proxy?
