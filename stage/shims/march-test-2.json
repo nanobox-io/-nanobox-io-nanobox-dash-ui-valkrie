@@ -1,0 +1,347 @@
+{"appId": "e8cc3892-c043-4e1c-b361-680fd77ef868",
+  "appName": "test-status",
+  "xAuthToken": "lTGziQeFcK6Pnt5ObsD0jIS3RJW2qBuXdMkZ4U1AohfHy8mYEp",
+  "totalDeploys": 1,
+  "proxy": null,
+  "hosts": [
+    {
+      "id": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624",
+      "name": "do.1",
+      "name_long": "do.1.1",
+      "state": "active",
+      "status": "online",
+      "bunkhouseId": "23a5fb05-fee8-4bef-917a-bade7c410d10",
+      "serverSpecsId": "512mb",
+      "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/hosts/b1cbb91a-9cd4-4a0d-b23d-c226300b0624",
+      "platformServices": [
+        {
+          "id": "c3fff553-33f8-4c5e-9e65-145392ea6146",
+          "uid": "wh1",
+          "kind": "warehouse",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "f8405bfc-d881-4ba1-be62-184d96531c6a",
+              "uri": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624/f8405bfc-d881-4ba1-be62-184d96531c6a",
+              "uid": "warehouse.data.hoarder",
+              "name": "warehouse.data.hoarder",
+              "state": "active",
+              "serviceType": "nanobox/hoarder",
+              "category": "data",
+              "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/f8405bfc-d881-4ba1-be62-184d96531c6a",
+              "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/f8405bfc-d881-4ba1-be62-184d96531c6a/info",
+              "clusterShapeCanBe": [
+                "data-single"
+              ],
+              "topology": "bunkhouse",
+              "tunnelCredentials": {
+                "host": "127.0.0.1",
+                "port": "provided in tunnel command output"
+              },
+              "generations": [
+                {
+                  "id": "20aa5877-3cfc-4f64-a31b-53a00835c5f6",
+                  "uid": "warehouse.data.hoarder.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "clusterShapeIs": null,
+                  "instances": [
+                    {
+                      "id": "a6038907-cc69-40fd-953d-3adbb3c130dc",
+                      "uid": 1,
+                      "hostId": "do.warehouse.data.hoarder.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "primary",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "54f961af-491d-412d-83d2-d60b866ca7e4",
+          "uid": "monitor1",
+          "kind": "monitor",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "1baab5f0-d9f7-4e52-a832-d67021176a43",
+              "uri": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624/1baab5f0-d9f7-4e52-a832-d67021176a43",
+              "uid": "monitor.data.pulse",
+              "name": "monitor.data.pulse",
+              "state": "active",
+              "serviceType": "nanobox/pulse",
+              "category": "data",
+              "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/1baab5f0-d9f7-4e52-a832-d67021176a43",
+              "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/1baab5f0-d9f7-4e52-a832-d67021176a43/info",
+              "clusterShapeCanBe": [
+                "data-single"
+              ],
+              "topology": "bunkhouse",
+              "tunnelCredentials": {
+                "host": "127.0.0.1",
+                "port": "provided in tunnel command output"
+              },
+              "generations": [
+                {
+                  "id": "d0124d15-a0fc-4876-829b-268fa9aef36e",
+                  "uid": "monitor.data.pulse.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "clusterShapeIs": null,
+                  "instances": [
+                    {
+                      "id": "6aeced3d-6a83-4004-86b8-4e603814b3ec",
+                      "uid": 1,
+                      "hostId": "do.monitor.data.pulse.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "primary",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dda026ef-0375-4da9-aec3-bde3be221bfc",
+          "uid": "logger1",
+          "kind": "logger",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "8dcd776b-2a72-43b0-86bd-eba84adacccf",
+              "uri": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624/8dcd776b-2a72-43b0-86bd-eba84adacccf",
+              "uid": "logger.data.logvac",
+              "name": "logger.data.logvac",
+              "state": "active",
+              "serviceType": "nanobox/logvac",
+              "category": "data",
+              "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/8dcd776b-2a72-43b0-86bd-eba84adacccf",
+              "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/8dcd776b-2a72-43b0-86bd-eba84adacccf/info",
+              "clusterShapeCanBe": [
+                "data-single"
+              ],
+              "topology": "bunkhouse",
+              "tunnelCredentials": {
+                "host": "127.0.0.1",
+                "port": "provided in tunnel command output"
+              },
+              "generations": [
+                {
+                  "id": "d06b30e2-5cfd-4592-9dd3-35bff2966862",
+                  "uid": "logger.data.logvac.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "clusterShapeIs": null,
+                  "instances": [
+                    {
+                      "id": "f1b1ff7c-761d-41a3-ae09-5c922d1ba2b2",
+                      "uid": 1,
+                      "hostId": "do.logger.data.logvac.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "primary",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "d41bd63f-22ba-464f-8399-f2b601272730",
+          "uid": "mesh1",
+          "kind": "mesh",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "3812df0a-781c-406e-8df1-c3aa4d50a936",
+              "uri": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624/3812df0a-781c-406e-8df1-c3aa4d50a936",
+              "uid": "mesh.data.portal",
+              "name": "mesh.data.portal",
+              "state": "active",
+              "serviceType": "nanobox/portal",
+              "category": "data",
+              "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/3812df0a-781c-406e-8df1-c3aa4d50a936",
+              "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/3812df0a-781c-406e-8df1-c3aa4d50a936/info",
+              "clusterShapeCanBe": [
+                "data-single"
+              ],
+              "topology": "bunkhouse",
+              "tunnelCredentials": {
+                "host": "127.0.0.1",
+                "port": "provided in tunnel command output"
+              },
+              "generations": [
+                {
+                  "id": "8d751219-2964-4366-9f55-9f93fbb26d99",
+                  "uid": "mesh.data.portal.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "clusterShapeIs": null,
+                  "instances": [
+                    {
+                      "id": "b9550a17-afdf-4d5d-b70b-eb3ec9cbe3b7",
+                      "uid": 1,
+                      "hostId": "do.mesh.data.portal.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "primary",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7024b104-6988-4806-8032-47eeed728a23",
+          "uid": "pusher1",
+          "kind": "pusher",
+          "mode": "simple",
+          "isSplitable": true,
+          "components": [
+            {
+              "id": "fc49313b-12e4-46b1-9977-451218744828",
+              "uri": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624/fc49313b-12e4-46b1-9977-451218744828",
+              "uid": "pusher.data.mist",
+              "name": "pusher.data.mist",
+              "state": "active",
+              "serviceType": "nanobox/mist",
+              "category": "data",
+              "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/fc49313b-12e4-46b1-9977-451218744828",
+              "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/fc49313b-12e4-46b1-9977-451218744828/info",
+              "clusterShapeCanBe": [
+                "data-single"
+              ],
+              "topology": "bunkhouse",
+              "tunnelCredentials": {
+                "host": "127.0.0.1",
+                "port": "provided in tunnel command output"
+              },
+              "generations": [
+                {
+                  "id": "0f638504-cd24-4ba7-9009-eebd0a81524a",
+                  "uid": "pusher.data.mist.gen1",
+                  "state": "active",
+                  "status": "online",
+                  "clusterShapeIs": null,
+                  "instances": [
+                    {
+                      "id": "969f6c1c-3b77-4c95-b7d2-e54a58cce451",
+                      "uid": 1,
+                      "hostId": "do.pusher.data.mist.1",
+                      "hostName": "do.1.1",
+                      "state": "active",
+                      "status": "online",
+                      "role": "primary",
+                      "serverSpecsId": "512mb"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "appComponents": [
+        {
+          "id": "f4718629-7bda-41ee-9b73-6b3101668e70",
+          "uri": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624/f4718629-7bda-41ee-9b73-6b3101668e70",
+          "uid": "web.site",
+          "name": "web.site",
+          "state": "active",
+          "serviceType": "ruby",
+          "category": "web",
+          "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/f4718629-7bda-41ee-9b73-6b3101668e70",
+          "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/f4718629-7bda-41ee-9b73-6b3101668e70/info",
+          "clusterShapeCanBe": [
+            "horizontal"
+          ],
+          "topology": "bunkhouse",
+          "generations": [
+            {
+              "id": "8818dfea-6fb2-4c96-9758-eb48b39421ea",
+              "uid": "web.site.gen1",
+              "state": "active",
+              "status": "online",
+              "clusterShapeIs": null,
+              "instances": [
+                {
+                  "id": "205ab307-c7b8-4da2-94b5-96663ec46dba",
+                  "uid": 1,
+                  "hostId": "do.web.site.1",
+                  "hostName": "do.1.1",
+                  "state": "active",
+                  "status": "online",
+                  "role": "primary",
+                  "serverSpecsId": "512mb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "c164efd6-c563-41d6-accb-671563dd161a",
+      "uri": "c164efd6-c563-41d6-accb-671563dd161a",
+      "uid": "data.db",
+      "name": "data.db",
+      "state": "active",
+      "serviceType": "nanobox/postgresql",
+      "category": "data",
+      "actionPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/c164efd6-c563-41d6-accb-671563dd161a",
+      "adminPath": "/apps/e8cc3892-c043-4e1c-b361-680fd77ef868/components/c164efd6-c563-41d6-accb-671563dd161a/info",
+      "clusterShapeCanBe": [
+        "data-single"
+      ],
+      "topology": "cluster",
+      "tunnelCredentials": {
+        "host": "127.0.0.1",
+        "port": "provided in tunnel command output",
+        "user": "nanobox",
+        "pass": "Tv1w2WNCmV"
+      },
+      "generations": [
+        {
+          "id": "e4bcec81-66bb-4835-afcf-483e280165c5",
+          "uid": "data.db.gen2",
+          "state": "active",
+          "status": "online",
+          "clusterShapeIs": "data-single",
+          "instances": [
+            {
+              "id": "9ab1481e-6a9f-45ea-beae-f3d7529ff8aa",
+              "uid": 1,
+              "hostId": "do.data.db.1",
+              "hostName": "do.data.db.2.1",
+              "state": "active",
+              "status": "online",
+              "role": "primary",
+              "serverSpecsId": "512mb"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

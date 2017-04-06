@@ -2,9 +2,10 @@ module.exports = class ValkrieDataShim
 
   constructor : () ->
     @blobs =
-      splitter  : require './splitter.json'
+      marchTest2  : require './march-test-2.json'
+      marchTest   : require './march-test.json'
 
-  getApp : (id='default', resetApp=false) -> @blobs[id]
+  getApp : (id='', resetApp=false) -> @blobs[id]
 
   initUI : () ->
     for key, blob of @blobs
