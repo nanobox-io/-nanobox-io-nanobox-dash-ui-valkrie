@@ -30,7 +30,11 @@ module.exports = class GlobMachine
     if glob.totalDeploys == 0
       nanobox.noDeploys = true
       for key, host of @hostUpdater.hosts
-        host.entity.box.showAsReadyForDeploys()
+        if glob.isPlatformReady
+          host.entity.box.setReadinessState 'no-deploys'
+        else
+          host.entity.box.setReadinessState 'platform-building'
+
         return
     else
       PubSub.publish 'HIDE_NO_DEPLOYS_MESSSAGE'
