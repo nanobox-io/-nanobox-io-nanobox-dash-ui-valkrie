@@ -1,0 +1,20 @@
+{
+	"appId": "3d9d886f-c387-4e9f-93fc-6a1849c18926",
+	"appName": "codeheroes",
+	"xAuthToken": "P7FAqehRZiUd6VHbYX85BGEvN4CcOylowuM0szKfQjT2SpaxJ9",
+	"totalDeploys": 0,
+	"proxy": "proxy.nanobox.io",
+  "isPlatformReady":true,
+	"hosts": [{
+		"id": "a57f4015-f852-4ebb-ba57-f7fb461a90f9",
+		"name": "do.1",
+		"name_long": "do.1.1",
+		"state": "active",
+		"status": "online",
+		"bunkhouseId": "4b67eb9e-0185-49f7-a9d9-cb0876d9743f",
+		"serverSpecsId": "512mb",
+		"actionPath": "/apps/3d9d886f-c387-4e9f-93fc-6a1849c18926/hosts/a57f4015-f852-4ebb-ba57-f7fb461a90f9asdf",
+		"platformServices": [],
+		"appComponents": []
+	}]
+}

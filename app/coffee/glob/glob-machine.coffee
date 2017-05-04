@@ -37,6 +37,7 @@ module.exports = class GlobMachine
 
         return
     else
+      delete nanobox.noDeploys
       PubSub.publish 'HIDE_NO_DEPLOYS_MESSSAGE'
 
     @sortBoxes @clusterUpdater.clusters, @clusterSorter, @$el

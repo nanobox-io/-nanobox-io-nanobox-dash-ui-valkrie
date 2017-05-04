@@ -3,6 +3,7 @@ module.exports = class ValkrieDataShim
   constructor : () ->
     @blobs =
       stats       : require './stats-refresh.json'
+      delete      : require './host-delete.json'
       marchTest2  : require './march-test-2.json'
       marchTest   : require './march-test.json'
 

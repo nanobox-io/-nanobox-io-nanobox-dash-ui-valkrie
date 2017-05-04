@@ -4,7 +4,7 @@
 	"xAuthToken": "P7FAqehRZiUd6VHbYX85BGEvN4CcOylowuM0szKfQjT2SpaxJ9",
 	"totalDeploys": 0,
 	"proxy": "proxy.nanobox.io",
-  "isPlatformReady":false,
+  "isPlatformReady":true,
 	"hosts": [{
 		"id": "a57f4015-f852-4ebb-ba57-f7fb461a90f9",
 		"name": "do.1",
