@@ -1,16 +1,4 @@
 {
-  "componentActions":[
-    {"action":"refresh", "permission":true},
-    {"action":"reboot",  "permission":false},
-    {"action":"rebuild", "permission":true},
-    {"action":"update",  "permission":true},
-    {"action":"manage",  "permission":true},
-    {"action":"delete",  "permission":true}
-  ],
-  "hostActions":[
-    {"action":"reboot",  "permission":true},
-    {"action":"delete",  "permission":true}
-  ],
   "appId": "e8cc3892-c043-4e1c-b361-680fd77ef868",
   "appName": "test-status",
   "xAuthToken": "lTGziQeFcK6Pnt5ObsD0jIS3RJW2qBuXdMkZ4U1AohfHy8mYEp",

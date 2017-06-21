@@ -1,0 +1,390 @@
+{
+"appId": "c6ad96e3-c30b-4e93-970b-fe3d26441d5a",
+"appName": "test-cancel",
+"fqAppName": "test-team/test-cancel",
+"xAuthToken": "q9hRirtfoDNPmZx8W05eOFs3JL1cBwXEjIplgk7MvuUdHTbAYG",
+"totalDeploys": 1,
+"proxy": null,
+"isPlatformReady": true,
+"hosts": [
+{
+"id": "6311fc24-ef8c-4588-bcc2-9666046c91ff",
+"name": "do.1",
+"name_long": "do.1.1",
+"state": "active",
+"status": "online",
+"bunkhouseId": "640faea1-1340-4093-91b5-7ef74c702823",
+"serverSpecsId": "512mb",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/hosts/6311fc24-ef8c-4588-bcc2-9666046c91ff",
+"platformServices": [
+{
+"id": "8a85ec7d-23da-4ce8-9969-782c2492a91a",
+"uid": "wh1",
+"kind": "warehouse",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "96e3c8a5-9a99-40c4-883e-b29a0ef5e279",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/96e3c8a5-9a99-40c4-883e-b29a0ef5e279",
+"uid": "warehouse.data.hoarder",
+"name": "warehouse.data.hoarder",
+"state": "active",
+"serviceType": "nanobox/hoarder",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/96e3c8a5-9a99-40c4-883e-b29a0ef5e279",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/96e3c8a5-9a99-40c4-883e-b29a0ef5e279/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output"
+},
+"generations": [
+{
+"id": "d634ace6-5b8d-4df6-9148-1963aae7cfd6",
+"uid": "warehouse.data.hoarder.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "59908542-e7db-4deb-abde-b27c3de2f964",
+"uid": 1,
+"hostId": "do.warehouse.data.hoarder.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "c21c661e-8725-4af9-8a3e-960b8f5145b0",
+"uid": "pusher1",
+"kind": "pusher",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "08b3a225-b807-4c53-b9cc-1714ab687b8f",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/08b3a225-b807-4c53-b9cc-1714ab687b8f",
+"uid": "pusher.data.mist",
+"name": "pusher.data.mist",
+"state": "active",
+"serviceType": "nanobox/mist",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/08b3a225-b807-4c53-b9cc-1714ab687b8f",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/08b3a225-b807-4c53-b9cc-1714ab687b8f/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output"
+},
+"generations": [
+{
+"id": "4046a6a5-33f6-4fc7-90e2-7035ad0bd24f",
+"uid": "pusher.data.mist.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "b32a3eeb-86ce-4d03-8f38-80d137fa723d",
+"uid": 1,
+"hostId": "do.pusher.data.mist.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "49004e67-ecc9-4e65-9b80-aeb0643d17b2",
+"uid": "logger1",
+"kind": "logger",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "f4768dc0-db58-4645-9935-6feb1cb1540f",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/f4768dc0-db58-4645-9935-6feb1cb1540f",
+"uid": "logger.data.logvac",
+"name": "logger.data.logvac",
+"state": "active",
+"serviceType": "nanobox/logvac",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/f4768dc0-db58-4645-9935-6feb1cb1540f",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/f4768dc0-db58-4645-9935-6feb1cb1540f/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output"
+},
+"generations": [
+{
+"id": "81635e98-e995-47dd-912c-2e6d23425df8",
+"uid": "logger.data.logvac.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "2230a4cd-e3bd-4612-a127-89ac7d28e4f7",
+"uid": 1,
+"hostId": "do.logger.data.logvac.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "cb60c78c-c4ca-4352-8877-cacf12beaff9",
+"uid": "mesh1",
+"kind": "mesh",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "76ebd647-c49a-45b3-85d1-8248d774cf09",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/76ebd647-c49a-45b3-85d1-8248d774cf09",
+"uid": "mesh.data.portal",
+"name": "mesh.data.portal",
+"state": "active",
+"serviceType": "nanobox/portal",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/76ebd647-c49a-45b3-85d1-8248d774cf09",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/76ebd647-c49a-45b3-85d1-8248d774cf09/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output"
+},
+"generations": [
+{
+"id": "d41bbd61-8da7-4536-822f-e5b217dd2d86",
+"uid": "mesh.data.portal.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "0c416f41-6a33-4082-91c1-24082f3f4251",
+"uid": 1,
+"hostId": "do.mesh.data.portal.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+},
+{
+"id": "57543590-e773-4a13-a186-6e5b0f9afdc6",
+"uid": "monitor1",
+"kind": "monitor",
+"mode": "simple",
+"isSplitable": true,
+"components": [
+{
+"id": "cfd24a0b-47a6-4770-9a90-ddf6cfe6eefe",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/cfd24a0b-47a6-4770-9a90-ddf6cfe6eefe",
+"uid": "monitor.data.pulse",
+"name": "monitor.data.pulse",
+"state": "active",
+"serviceType": "nanobox/pulse",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/cfd24a0b-47a6-4770-9a90-ddf6cfe6eefe",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/cfd24a0b-47a6-4770-9a90-ddf6cfe6eefe/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output"
+},
+"generations": [
+{
+"id": "dc4ef013-e6a3-47ea-8287-1e78612dc2df",
+"uid": "monitor.data.pulse.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "20b0bac0-586c-4197-a863-2901ac87c705",
+"uid": 1,
+"hostId": "do.monitor.data.pulse.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+}
+],
+"appComponents": [
+{
+"id": "1bf4b423-2d8c-4cc1-afff-d2b581f854b3",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/1bf4b423-2d8c-4cc1-afff-d2b581f854b3",
+"uid": "data.storage",
+"name": "data.storage",
+"state": "active",
+"serviceType": "nanobox/unfs",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/1bf4b423-2d8c-4cc1-afff-d2b581f854b3",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/1bf4b423-2d8c-4cc1-afff-d2b581f854b3/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output",
+"user": "gonano",
+"pass": "48M2izEcAT"
+},
+"generations": [
+{
+"id": "e2df91b0-e8b2-4c64-a726-3b39018321d3",
+"uid": "data.storage.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "df265440-b8ab-49af-b80b-3787c3ce546d",
+"uid": 1,
+"hostId": "do.data.storage.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+},
+{
+"id": "c9885bcd-78c8-4db7-9acd-c093e6b61202",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/c9885bcd-78c8-4db7-9acd-c093e6b61202",
+"uid": "data.db",
+"name": "data.db",
+"state": "active",
+"serviceType": "nanobox/postgresql",
+"category": "data",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/c9885bcd-78c8-4db7-9acd-c093e6b61202",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/c9885bcd-78c8-4db7-9acd-c093e6b61202/info",
+"clusterShapeCanBe": [
+"data-single"
+],
+"topology": "bunkhouse",
+"tunnelCredentials": {
+"host": "127.0.0.1",
+"port": "provided in tunnel command output",
+"user": "nanobox",
+"pass": "MZIjcAl2g5"
+},
+"generations": [
+{
+"id": "a53e0061-c572-407a-9cac-3c636c23b758",
+"uid": "data.db.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "7f3e1fab-8464-48ed-acec-dcfcaf8c0705",
+"uid": 1,
+"hostId": "do.data.db.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+},
+{
+"id": "ec0ad785-77b8-47d9-99ba-f5415c1aef2b",
+"uri": "6311fc24-ef8c-4588-bcc2-9666046c91ff/ec0ad785-77b8-47d9-99ba-f5415c1aef2b",
+"uid": "web.site",
+"name": "web.site",
+"state": "active",
+"serviceType": "ruby",
+"category": "web",
+"actionPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/ec0ad785-77b8-47d9-99ba-f5415c1aef2b",
+"adminPath": "/apps/c6ad96e3-c30b-4e93-970b-fe3d26441d5a/components/ec0ad785-77b8-47d9-99ba-f5415c1aef2b/info",
+"clusterShapeCanBe": [
+"horizontal"
+],
+"topology": "bunkhouse",
+"generations": [
+{
+"id": "20205ccf-120d-4d70-a7f9-31f3985ddf23",
+"uid": "web.site.gen1",
+"state": "active",
+"status": "online",
+"clusterShapeIs": null,
+"instances": [
+{
+"id": "a0206684-d088-4213-b2d2-6128b9f889f4",
+"uid": 1,
+"hostId": "do.web.site.1",
+"hostName": "do.1.1",
+"state": "active",
+"status": "online",
+"role": "primary",
+"serverSpecsId": "512mb"
+}
+]
+}
+]
+}
+]
+}
+]
+}

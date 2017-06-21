@@ -4,6 +4,7 @@ GlobMachine  = require 'glob/glob-machine'
 class Valkrie
 
   constructor: (@$el, @params, isTesting=false) ->
+    @setActions()
     @statsMachine = new StatsMachine(isTesting)
     $boxes = $ '<div class="boxes" />'
     @$el.append $boxes
@@ -24,6 +25,12 @@ class Valkrie
       @refresh glob
 
   # ------------------------------------ Helpers
+
+  setActions : () ->
+    nanobox.clobberConfig = {
+      hostActions      : @params.hostActions
+      componentActions : @params.componentActions
+    }
 
   refresh : (dataGlob) ->
     @statsMachine.setAppInfo dataGlob.appId, dataGlob.xAuthToken, dataGlob.proxy

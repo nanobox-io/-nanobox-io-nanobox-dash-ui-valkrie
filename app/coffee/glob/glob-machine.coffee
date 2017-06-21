@@ -21,11 +21,6 @@ module.exports = class GlobMachine
   update : (glob) ->
     nanobox.appName   = glob.appName
     nanobox.fqAppName = glob.fqAppName
-    nanobox.clobberConfig = {
-      hostActions      : glob.hostActions
-      componentActions : glob.componentActions
-    }
-    console.log nanobox
     @fillInMissingData glob
     @hostUpdater.updateHosts glob.hosts
     @clusterUpdater.updateClusters glob.clusters
