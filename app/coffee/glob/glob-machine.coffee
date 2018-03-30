@@ -32,9 +32,9 @@ module.exports = class GlobMachine
       nanobox.noDeploys = true
       for key, host of @hostUpdater.hosts
         if glob.isPlatformReady
-          host.entity.box.setReadinessState 'no-deploys'
+          host.entity.box.setReadinessState 'no-deploys', glob.schema_type
         else
-          host.entity.box.setReadinessState 'platform-building'
+          host.entity.box.setReadinessState 'platform-building', glob.schema_type
 
         return
     else

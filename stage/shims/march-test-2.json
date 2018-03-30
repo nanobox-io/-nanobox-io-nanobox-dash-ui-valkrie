@@ -2,8 +2,9 @@
   "appId": "e8cc3892-c043-4e1c-b361-680fd77ef868",
   "appName": "test-status",
   "xAuthToken": "lTGziQeFcK6Pnt5ObsD0jIS3RJW2qBuXdMkZ4U1AohfHy8mYEp",
-  "totalDeploys": 1,
+  "totalDeploys": 0,
   "proxy": null,
+  "schema_type": "nbx",
   "hosts": [
     {
       "id": "b1cbb91a-9cd4-4a0d-b23d-c226300b0624",
