@@ -1,7 +1,7 @@
 {
 "appId": "c6ad96e3-c30b-4e93-970b-fe3d26441d5a",
 "appName": "test-cancel",
-"fqAppName": "test-team/test-cancel",
+"fqName": "test-team/test-cancel",
 "xAuthToken": "q9hRirtfoDNPmZx8W05eOFs3JL1cBwXEjIplgk7MvuUdHTbAYG",
 "totalDeploys": 1,
 "proxy": null,

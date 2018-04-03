@@ -19,8 +19,8 @@ module.exports = class GlobMachine
     @addEventListeners()
 
   update : (glob) ->
-    nanobox.appName   = glob.appName
-    nanobox.fqAppName = glob.fqAppName
+    nanobox.appName = glob.appName
+    nanobox.fqName  = glob.fqName
     @fillInMissingData glob
     @hostUpdater.updateHosts glob.hosts
     @clusterUpdater.updateClusters glob.clusters

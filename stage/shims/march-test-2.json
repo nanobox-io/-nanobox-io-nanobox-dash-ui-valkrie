@@ -1,6 +1,7 @@
 {
   "appId": "e8cc3892-c043-4e1c-b361-680fd77ef868",
   "appName": "test-status",
+  "userName": "some-username",
   "xAuthToken": "lTGziQeFcK6Pnt5ObsD0jIS3RJW2qBuXdMkZ4U1AohfHy8mYEp",
   "totalDeploys": 0,
   "proxy": null,
