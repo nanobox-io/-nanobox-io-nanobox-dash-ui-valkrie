@@ -21,6 +21,7 @@ module.exports = class GlobMachine
   update : (glob) ->
     nanobox.appName = glob.appName
     nanobox.fqName  = glob.fqName
+    console.log glob
     @fillInMissingData glob
     @hostUpdater.updateHosts glob.hosts
     @clusterUpdater.updateClusters glob.clusters
