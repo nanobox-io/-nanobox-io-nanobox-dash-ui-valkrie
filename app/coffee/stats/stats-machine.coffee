@@ -154,4 +154,5 @@ module.exports = class StatsMachine
   @metric   ex: 'ram', 'cpu', etc
   @interval ex: 'daily', 'latest', etc
   ###
-  buildUrl : (metric, interval) => "https://#{@proxy}/#{@appId}/pulse/#{interval}/#{metric}_percent"
+  buildUrl : (metric, interval) =>
+    "#{window.location.protocol}://#{@proxy}/#{@appId}/pulse/#{interval}/#{metric}_percent"
