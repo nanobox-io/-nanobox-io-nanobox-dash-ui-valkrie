@@ -155,4 +155,4 @@ module.exports = class StatsMachine
   @interval ex: 'daily', 'latest', etc
   ###
   buildUrl : (metric, interval) =>
-    "#{window.location.protocol}://#{@proxy}/#{@appId}/pulse/#{interval}/#{metric}_percent"
+    "#{window.location.protocol}//#{@proxy}/#{@appId}/pulse/#{interval}/#{metric}_percent"
